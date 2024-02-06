@@ -1,0 +1,960 @@
+2024-01-24 16:01:56,571:	========================================================================
+2024-01-24 16:01:56,572:	========================================================================
+2024-01-24 16:01:56,572:	========================================================================
+2024-01-24 16:01:56,572:	[1;35m[Benchmark] >>> cudnn.benchmark == False | cudnn.deterministic == True[0m
+2024-01-24 16:01:56,572:	[1;35m[Seed] >>> Set seed: 0[0m
+2024-01-24 16:01:56,572:	[1;35m[PARSER] >>>
+[SAVED_FILENAME: model.pt] 
+[BEST_FILENAME: best.pt] 
+[CHECKPOINT_FREQ: 1] 
+[CHECKPOINT_MODULES: ['model', 'optimizer', 'lr_scheduler']] 
+[CHECKPOINT_FILENAME: checkpoint.tar] 
+[SUMMARY_FILENAME: SUMMARY.md] 
+[MONITOR_FILENAME: monitors.pkl] 
+[MONITOR_BEST_FILENAME: best.pkl] 
+[root: ../../data] 
+[dataset: Yelp_550_Chron] 
+[config: configs/CE.yaml] 
+[ranking: full] 
+[retain_seen: False] 
+[device: cuda:1] 
+[ddp_backend: nccl] 
+[optimizer: adam] 
+[nesterov: False] 
+[momentum: 0.9] 
+[beta1: 0.9] 
+[beta2: 0.999] 
+[weight_decay: 0.0005] 
+[lr: 0.001] 
+[batch_size: 512] 
+[epochs: 200] 
+[log2file: True] 
+[log2console: True] 
+[eval_valid: True] 
+[eval_test: False] 
+[eval_freq: 5] 
+[num_workers: 4] 
+[pin_memory: False] 
+[seed: 0] 
+[benchmark: False] 
+[resume: False] 
+[id: 0124160154] 
+[description: yelp-ce-5] 
+[maxlen: 50] 
+[embedding_dim: 64] 
+[dropout_rate: 0.2] 
+[num_gru_layers: 1] 
+[loss: CE] 
+[c: None] 
+[alpha: None] 
+[eta: None] 
+[num_negs: 1] 
+[neg_pool: all] 
+[DATA_DIR: data] 
+[SUMMARY_DIR: summary] 
+[CHECKPOINT_PATH: ./infos/yelp-ce-5/Yelp_550_Chron/1] 
+[LOG_PATH: ./logs/yelp-ce-5/Yelp_550_Chron/0124160154] 
+[0m
+2024-01-24 16:01:56,572:	[1;35m[Wall TIME] >>> Parser.compile takes 0.004713 seconds ...[0m
+2024-01-24 16:01:56,589:	[1;35m[Yelp_550_Chron] >>> 
+UserID: [dtype: torch.int64, na_value: None, tags: FieldTags.ID,FieldTags.Sparse,FieldTags.User]
+ItemID: [dtype: torch.int64, na_value: None, tags: FieldTags.ID,FieldTags.Sparse,FieldTags.Item]
+Timestamp: [dtype: torch.float32, na_value: None, tags: FieldTags.Dense,FieldTags.Timestamp][0m
+2024-01-24 16:01:56,753:	[1;35m+--------+--------+--------------------+---------------+--------+--------+-------+-----------------------+
+| #Users | #Items |      Avg.Len       | #Interactions | #Train | #Valid | #Test |        Density        |
++--------+--------+--------------------+---------------+--------+--------+-------+-----------------------+
+| 30431  | 20033  | 10.395780618448294 |     316354    | 255492 | 30431  | 30431 | 0.0005189327918159183 |
++--------+--------+--------------------+---------------+--------+--------+-------+-----------------------+[0m
+2024-01-24 16:01:56,753:	[1;35m[Wall TIME] >>> RecDataSet.compile takes 0.180507 seconds ...[0m
+2024-01-24 16:01:57,325:	[1;35m[Wall TIME] >>> SeqTrainUniformSampler.prepare takes 0.172684 seconds ...[0m
+2024-01-24 16:01:57,542:	[1;35m[Wall TIME] >>> SeqValidYielder.prepare takes 0.216849 seconds ...[0m
+2024-01-24 16:01:57,721:	[1;35m[Wall TIME] >>> SeqTestYielder.prepare takes 0.178028 seconds ...[0m
+2024-01-24 16:02:01,423:	[1;35m[Coach] >>> Set best meter: NDCG@10 [0m
+2024-01-24 16:02:01,423:	[1;35m[Wall TIME] >>> Coach.compile takes 0.001171 seconds ...[0m
+2024-01-24 16:02:06,897:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.460086 seconds ...[0m
+2024-01-24 16:02:06,897:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0002*** [0m
+2024-01-24 16:02:06,911:	[1;35m[Coach] >>> TRAIN @Epoch: 0    >>> [0m
+2024-01-24 16:02:06,911:	[1;35m[Coach] >>> VALID @Epoch: 0    >>>  || HITRATE@1 Avg: 0.0000 || HITRATE@5 Avg: 0.0001 || HITRATE@10 Avg: 0.0007 || NDCG@5 Avg: 0.0001 || NDCG@10 Avg: 0.0002 || MRR@5 Avg: 0.0000 || MRR@10 Avg: 0.0001[0m
+2024-01-24 16:02:06,911:	[1;35m[Coach] >>> TEST  @Epoch: 0    >>> [0m
+2024-01-24 16:02:16,029:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.118138 seconds ...[0m
+2024-01-24 16:02:16,131:	[1;35m[Coach] >>> TRAIN @Epoch: 1    >>>  || LOSS Avg: 9.47499[0m
+2024-01-24 16:02:16,131:	[1;35m[Coach] >>> VALID @Epoch: 1    >>> [0m
+2024-01-24 16:02:16,131:	[1;35m[Coach] >>> TEST  @Epoch: 1    >>> [0m
+2024-01-24 16:02:25,076:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.944554 seconds ...[0m
+2024-01-24 16:02:25,124:	[1;35m[Coach] >>> TRAIN @Epoch: 2    >>>  || LOSS Avg: 8.99725[0m
+2024-01-24 16:02:25,125:	[1;35m[Coach] >>> VALID @Epoch: 2    >>> [0m
+2024-01-24 16:02:25,125:	[1;35m[Coach] >>> TEST  @Epoch: 2    >>> [0m
+2024-01-24 16:02:33,998:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.872240 seconds ...[0m
+2024-01-24 16:02:34,043:	[1;35m[Coach] >>> TRAIN @Epoch: 3    >>>  || LOSS Avg: 8.55546[0m
+2024-01-24 16:02:34,043:	[1;35m[Coach] >>> VALID @Epoch: 3    >>> [0m
+2024-01-24 16:02:34,043:	[1;35m[Coach] >>> TEST  @Epoch: 3    >>> [0m
+2024-01-24 16:02:42,711:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.667195 seconds ...[0m
+2024-01-24 16:02:42,763:	[1;35m[Coach] >>> TRAIN @Epoch: 4    >>>  || LOSS Avg: 8.43168[0m
+2024-01-24 16:02:42,763:	[1;35m[Coach] >>> VALID @Epoch: 4    >>> [0m
+2024-01-24 16:02:42,763:	[1;35m[Coach] >>> TEST  @Epoch: 4    >>> [0m
+2024-01-24 16:02:51,337:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.573177 seconds ...[0m
+2024-01-24 16:02:55,988:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.609581 seconds ...[0m
+2024-01-24 16:02:55,989:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0133*** [0m
+2024-01-24 16:02:56,010:	[1;35m[Coach] >>> TRAIN @Epoch: 5    >>>  || LOSS Avg: 8.37328[0m
+2024-01-24 16:02:56,011:	[1;35m[Coach] >>> VALID @Epoch: 5    >>>  || HITRATE@1 Avg: 0.0033 || HITRATE@5 Avg: 0.0155 || HITRATE@10 Avg: 0.0284 || NDCG@5 Avg: 0.0092 || NDCG@10 Avg: 0.0133 || MRR@5 Avg: 0.0072 || MRR@10 Avg: 0.0088[0m
+2024-01-24 16:02:56,011:	[1;35m[Coach] >>> TEST  @Epoch: 5    >>> [0m
+2024-01-24 16:03:04,524:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.513018 seconds ...[0m
+2024-01-24 16:03:04,625:	[1;35m[Coach] >>> TRAIN @Epoch: 6    >>>  || LOSS Avg: 8.30909[0m
+2024-01-24 16:03:04,625:	[1;35m[Coach] >>> VALID @Epoch: 6    >>> [0m
+2024-01-24 16:03:04,626:	[1;35m[Coach] >>> TEST  @Epoch: 6    >>> [0m
+2024-01-24 16:03:13,085:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.458767 seconds ...[0m
+2024-01-24 16:03:13,127:	[1;35m[Coach] >>> TRAIN @Epoch: 7    >>>  || LOSS Avg: 8.24586[0m
+2024-01-24 16:03:13,127:	[1;35m[Coach] >>> VALID @Epoch: 7    >>> [0m
+2024-01-24 16:03:13,127:	[1;35m[Coach] >>> TEST  @Epoch: 7    >>> [0m
+2024-01-24 16:03:21,933:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.806297 seconds ...[0m
+2024-01-24 16:03:21,983:	[1;35m[Coach] >>> TRAIN @Epoch: 8    >>>  || LOSS Avg: 8.17662[0m
+2024-01-24 16:03:21,983:	[1;35m[Coach] >>> VALID @Epoch: 8    >>> [0m
+2024-01-24 16:03:21,983:	[1;35m[Coach] >>> TEST  @Epoch: 8    >>> [0m
+2024-01-24 16:03:31,120:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.136508 seconds ...[0m
+2024-01-24 16:03:31,168:	[1;35m[Coach] >>> TRAIN @Epoch: 9    >>>  || LOSS Avg: 8.12930[0m
+2024-01-24 16:03:31,168:	[1;35m[Coach] >>> VALID @Epoch: 9    >>> [0m
+2024-01-24 16:03:31,168:	[1;35m[Coach] >>> TEST  @Epoch: 9    >>> [0m
+2024-01-24 16:03:39,985:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.817083 seconds ...[0m
+2024-01-24 16:03:45,619:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.579075 seconds ...[0m
+2024-01-24 16:03:45,620:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0176*** [0m
+2024-01-24 16:03:45,643:	[1;35m[Coach] >>> TRAIN @Epoch: 10   >>>  || LOSS Avg: 8.10170[0m
+2024-01-24 16:03:45,643:	[1;35m[Coach] >>> VALID @Epoch: 10   >>>  || HITRATE@1 Avg: 0.0051 || HITRATE@5 Avg: 0.0197 || HITRATE@10 Avg: 0.0363 || NDCG@5 Avg: 0.0123 || NDCG@10 Avg: 0.0176 || MRR@5 Avg: 0.0099 || MRR@10 Avg: 0.0121[0m
+2024-01-24 16:03:45,643:	[1;35m[Coach] >>> TEST  @Epoch: 10   >>> [0m
+2024-01-24 16:03:54,395:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.751203 seconds ...[0m
+2024-01-24 16:03:54,445:	[1;35m[Coach] >>> TRAIN @Epoch: 11   >>>  || LOSS Avg: 8.07959[0m
+2024-01-24 16:03:54,445:	[1;35m[Coach] >>> VALID @Epoch: 11   >>> [0m
+2024-01-24 16:03:54,445:	[1;35m[Coach] >>> TEST  @Epoch: 11   >>> [0m
+2024-01-24 16:04:03,025:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.579123 seconds ...[0m
+2024-01-24 16:04:03,070:	[1;35m[Coach] >>> TRAIN @Epoch: 12   >>>  || LOSS Avg: 8.06226[0m
+2024-01-24 16:04:03,070:	[1;35m[Coach] >>> VALID @Epoch: 12   >>> [0m
+2024-01-24 16:04:03,070:	[1;35m[Coach] >>> TEST  @Epoch: 12   >>> [0m
+2024-01-24 16:04:11,620:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.549492 seconds ...[0m
+2024-01-24 16:04:11,667:	[1;35m[Coach] >>> TRAIN @Epoch: 13   >>>  || LOSS Avg: 8.04642[0m
+2024-01-24 16:04:11,667:	[1;35m[Coach] >>> VALID @Epoch: 13   >>> [0m
+2024-01-24 16:04:11,667:	[1;35m[Coach] >>> TEST  @Epoch: 13   >>> [0m
+2024-01-24 16:04:20,183:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.515711 seconds ...[0m
+2024-01-24 16:04:20,237:	[1;35m[Coach] >>> TRAIN @Epoch: 14   >>>  || LOSS Avg: 8.03336[0m
+2024-01-24 16:04:20,238:	[1;35m[Coach] >>> VALID @Epoch: 14   >>> [0m
+2024-01-24 16:04:20,238:	[1;35m[Coach] >>> TEST  @Epoch: 14   >>> [0m
+2024-01-24 16:04:28,954:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.715927 seconds ...[0m
+2024-01-24 16:04:33,740:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.739556 seconds ...[0m
+2024-01-24 16:04:33,740:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0187*** [0m
+2024-01-24 16:04:33,760:	[1;35m[Coach] >>> TRAIN @Epoch: 15   >>>  || LOSS Avg: 8.02049[0m
+2024-01-24 16:04:33,760:	[1;35m[Coach] >>> VALID @Epoch: 15   >>>  || HITRATE@1 Avg: 0.0051 || HITRATE@5 Avg: 0.0222 || HITRATE@10 Avg: 0.0386 || NDCG@5 Avg: 0.0134 || NDCG@10 Avg: 0.0187 || MRR@5 Avg: 0.0106 || MRR@10 Avg: 0.0127[0m
+2024-01-24 16:04:33,761:	[1;35m[Coach] >>> TEST  @Epoch: 15   >>> [0m
+2024-01-24 16:04:42,334:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.572834 seconds ...[0m
+2024-01-24 16:04:42,382:	[1;35m[Coach] >>> TRAIN @Epoch: 16   >>>  || LOSS Avg: 8.00832[0m
+2024-01-24 16:04:42,383:	[1;35m[Coach] >>> VALID @Epoch: 16   >>> [0m
+2024-01-24 16:04:42,383:	[1;35m[Coach] >>> TEST  @Epoch: 16   >>> [0m
+2024-01-24 16:04:50,977:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.593549 seconds ...[0m
+2024-01-24 16:04:51,079:	[1;35m[Coach] >>> TRAIN @Epoch: 17   >>>  || LOSS Avg: 7.99328[0m
+2024-01-24 16:04:51,080:	[1;35m[Coach] >>> VALID @Epoch: 17   >>> [0m
+2024-01-24 16:04:51,080:	[1;35m[Coach] >>> TEST  @Epoch: 17   >>> [0m
+2024-01-24 16:04:59,943:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.862542 seconds ...[0m
+2024-01-24 16:04:59,991:	[1;35m[Coach] >>> TRAIN @Epoch: 18   >>>  || LOSS Avg: 7.97726[0m
+2024-01-24 16:04:59,991:	[1;35m[Coach] >>> VALID @Epoch: 18   >>> [0m
+2024-01-24 16:04:59,991:	[1;35m[Coach] >>> TEST  @Epoch: 18   >>> [0m
+2024-01-24 16:05:08,376:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.384765 seconds ...[0m
+2024-01-24 16:05:08,425:	[1;35m[Coach] >>> TRAIN @Epoch: 19   >>>  || LOSS Avg: 7.95815[0m
+2024-01-24 16:05:08,425:	[1;35m[Coach] >>> VALID @Epoch: 19   >>> [0m
+2024-01-24 16:05:08,425:	[1;35m[Coach] >>> TEST  @Epoch: 19   >>> [0m
+2024-01-24 16:05:16,984:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.558044 seconds ...[0m
+2024-01-24 16:05:21,707:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.673780 seconds ...[0m
+2024-01-24 16:05:21,707:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0196*** [0m
+2024-01-24 16:05:21,732:	[1;35m[Coach] >>> TRAIN @Epoch: 20   >>>  || LOSS Avg: 7.93593[0m
+2024-01-24 16:05:21,732:	[1;35m[Coach] >>> VALID @Epoch: 20   >>>  || HITRATE@1 Avg: 0.0058 || HITRATE@5 Avg: 0.0231 || HITRATE@10 Avg: 0.0397 || NDCG@5 Avg: 0.0143 || NDCG@10 Avg: 0.0196 || MRR@5 Avg: 0.0115 || MRR@10 Avg: 0.0136[0m
+2024-01-24 16:05:21,732:	[1;35m[Coach] >>> TEST  @Epoch: 20   >>> [0m
+2024-01-24 16:05:30,694:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.961359 seconds ...[0m
+2024-01-24 16:05:30,742:	[1;35m[Coach] >>> TRAIN @Epoch: 21   >>>  || LOSS Avg: 7.91396[0m
+2024-01-24 16:05:30,742:	[1;35m[Coach] >>> VALID @Epoch: 21   >>> [0m
+2024-01-24 16:05:30,742:	[1;35m[Coach] >>> TEST  @Epoch: 21   >>> [0m
+2024-01-24 16:05:39,306:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.563725 seconds ...[0m
+2024-01-24 16:05:39,360:	[1;35m[Coach] >>> TRAIN @Epoch: 22   >>>  || LOSS Avg: 7.89597[0m
+2024-01-24 16:05:39,360:	[1;35m[Coach] >>> VALID @Epoch: 22   >>> [0m
+2024-01-24 16:05:39,360:	[1;35m[Coach] >>> TEST  @Epoch: 22   >>> [0m
+2024-01-24 16:05:47,907:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.546788 seconds ...[0m
+2024-01-24 16:05:48,009:	[1;35m[Coach] >>> TRAIN @Epoch: 23   >>>  || LOSS Avg: 7.88312[0m
+2024-01-24 16:05:48,010:	[1;35m[Coach] >>> VALID @Epoch: 23   >>> [0m
+2024-01-24 16:05:48,010:	[1;35m[Coach] >>> TEST  @Epoch: 23   >>> [0m
+2024-01-24 16:05:56,731:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.721317 seconds ...[0m
+2024-01-24 16:05:56,785:	[1;35m[Coach] >>> TRAIN @Epoch: 24   >>>  || LOSS Avg: 7.86960[0m
+2024-01-24 16:05:56,785:	[1;35m[Coach] >>> VALID @Epoch: 24   >>> [0m
+2024-01-24 16:05:56,785:	[1;35m[Coach] >>> TEST  @Epoch: 24   >>> [0m
+2024-01-24 16:06:05,376:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.589864 seconds ...[0m
+2024-01-24 16:06:10,118:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.639210 seconds ...[0m
+2024-01-24 16:06:10,118:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0197*** [0m
+2024-01-24 16:06:10,140:	[1;35m[Coach] >>> TRAIN @Epoch: 25   >>>  || LOSS Avg: 7.85840[0m
+2024-01-24 16:06:10,140:	[1;35m[Coach] >>> VALID @Epoch: 25   >>>  || HITRATE@1 Avg: 0.0054 || HITRATE@5 Avg: 0.0235 || HITRATE@10 Avg: 0.0406 || NDCG@5 Avg: 0.0142 || NDCG@10 Avg: 0.0197 || MRR@5 Avg: 0.0113 || MRR@10 Avg: 0.0134[0m
+2024-01-24 16:06:10,140:	[1;35m[Coach] >>> TEST  @Epoch: 25   >>> [0m
+2024-01-24 16:06:18,488:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.347368 seconds ...[0m
+2024-01-24 16:06:18,589:	[1;35m[Coach] >>> TRAIN @Epoch: 26   >>>  || LOSS Avg: 7.84937[0m
+2024-01-24 16:06:18,589:	[1;35m[Coach] >>> VALID @Epoch: 26   >>> [0m
+2024-01-24 16:06:18,589:	[1;35m[Coach] >>> TEST  @Epoch: 26   >>> [0m
+2024-01-24 16:06:27,169:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.579797 seconds ...[0m
+2024-01-24 16:06:27,279:	[1;35m[Coach] >>> TRAIN @Epoch: 27   >>>  || LOSS Avg: 7.83943[0m
+2024-01-24 16:06:27,279:	[1;35m[Coach] >>> VALID @Epoch: 27   >>> [0m
+2024-01-24 16:06:27,280:	[1;35m[Coach] >>> TEST  @Epoch: 27   >>> [0m
+2024-01-24 16:06:36,091:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.811561 seconds ...[0m
+2024-01-24 16:06:36,133:	[1;35m[Coach] >>> TRAIN @Epoch: 28   >>>  || LOSS Avg: 7.83114[0m
+2024-01-24 16:06:36,133:	[1;35m[Coach] >>> VALID @Epoch: 28   >>> [0m
+2024-01-24 16:06:36,133:	[1;35m[Coach] >>> TEST  @Epoch: 28   >>> [0m
+2024-01-24 16:06:44,966:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.832325 seconds ...[0m
+2024-01-24 16:06:45,015:	[1;35m[Coach] >>> TRAIN @Epoch: 29   >>>  || LOSS Avg: 7.82296[0m
+2024-01-24 16:06:45,015:	[1;35m[Coach] >>> VALID @Epoch: 29   >>> [0m
+2024-01-24 16:06:45,015:	[1;35m[Coach] >>> TEST  @Epoch: 29   >>> [0m
+2024-01-24 16:06:53,909:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.894006 seconds ...[0m
+2024-01-24 16:06:58,612:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.655274 seconds ...[0m
+2024-01-24 16:06:58,612:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0218*** [0m
+2024-01-24 16:06:58,636:	[1;35m[Coach] >>> TRAIN @Epoch: 30   >>>  || LOSS Avg: 7.81572[0m
+2024-01-24 16:06:58,636:	[1;35m[Coach] >>> VALID @Epoch: 30   >>>  || HITRATE@1 Avg: 0.0066 || HITRATE@5 Avg: 0.0264 || HITRATE@10 Avg: 0.0437 || NDCG@5 Avg: 0.0163 || NDCG@10 Avg: 0.0218 || MRR@5 Avg: 0.0130 || MRR@10 Avg: 0.0153[0m
+2024-01-24 16:06:58,636:	[1;35m[Coach] >>> TEST  @Epoch: 30   >>> [0m
+2024-01-24 16:07:07,155:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.518855 seconds ...[0m
+2024-01-24 16:07:07,203:	[1;35m[Coach] >>> TRAIN @Epoch: 31   >>>  || LOSS Avg: 7.80979[0m
+2024-01-24 16:07:07,203:	[1;35m[Coach] >>> VALID @Epoch: 31   >>> [0m
+2024-01-24 16:07:07,204:	[1;35m[Coach] >>> TEST  @Epoch: 31   >>> [0m
+2024-01-24 16:07:15,854:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.650213 seconds ...[0m
+2024-01-24 16:07:15,904:	[1;35m[Coach] >>> TRAIN @Epoch: 32   >>>  || LOSS Avg: 7.80195[0m
+2024-01-24 16:07:15,905:	[1;35m[Coach] >>> VALID @Epoch: 32   >>> [0m
+2024-01-24 16:07:15,905:	[1;35m[Coach] >>> TEST  @Epoch: 32   >>> [0m
+2024-01-24 16:07:24,789:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.884011 seconds ...[0m
+2024-01-24 16:07:24,889:	[1;35m[Coach] >>> TRAIN @Epoch: 33   >>>  || LOSS Avg: 7.79526[0m
+2024-01-24 16:07:24,890:	[1;35m[Coach] >>> VALID @Epoch: 33   >>> [0m
+2024-01-24 16:07:24,890:	[1;35m[Coach] >>> TEST  @Epoch: 33   >>> [0m
+2024-01-24 16:07:33,694:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.803403 seconds ...[0m
+2024-01-24 16:07:33,744:	[1;35m[Coach] >>> TRAIN @Epoch: 34   >>>  || LOSS Avg: 7.79155[0m
+2024-01-24 16:07:33,745:	[1;35m[Coach] >>> VALID @Epoch: 34   >>> [0m
+2024-01-24 16:07:33,745:	[1;35m[Coach] >>> TEST  @Epoch: 34   >>> [0m
+2024-01-24 16:07:42,325:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.580448 seconds ...[0m
+2024-01-24 16:07:47,119:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.741569 seconds ...[0m
+2024-01-24 16:07:47,119:	[1;35m[Coach] >>> TRAIN @Epoch: 35   >>>  || LOSS Avg: 7.78553[0m
+2024-01-24 16:07:47,120:	[1;35m[Coach] >>> VALID @Epoch: 35   >>>  || HITRATE@1 Avg: 0.0061 || HITRATE@5 Avg: 0.0248 || HITRATE@10 Avg: 0.0433 || NDCG@5 Avg: 0.0153 || NDCG@10 Avg: 0.0212 || MRR@5 Avg: 0.0122 || MRR@10 Avg: 0.0146[0m
+2024-01-24 16:07:47,120:	[1;35m[Coach] >>> TEST  @Epoch: 35   >>> [0m
+2024-01-24 16:07:56,255:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.134376 seconds ...[0m
+2024-01-24 16:07:56,357:	[1;35m[Coach] >>> TRAIN @Epoch: 36   >>>  || LOSS Avg: 7.78058[0m
+2024-01-24 16:07:56,357:	[1;35m[Coach] >>> VALID @Epoch: 36   >>> [0m
+2024-01-24 16:07:56,357:	[1;35m[Coach] >>> TEST  @Epoch: 36   >>> [0m
+2024-01-24 16:08:04,809:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.452180 seconds ...[0m
+2024-01-24 16:08:04,858:	[1;35m[Coach] >>> TRAIN @Epoch: 37   >>>  || LOSS Avg: 7.77498[0m
+2024-01-24 16:08:04,858:	[1;35m[Coach] >>> VALID @Epoch: 37   >>> [0m
+2024-01-24 16:08:04,858:	[1;35m[Coach] >>> TEST  @Epoch: 37   >>> [0m
+2024-01-24 16:08:13,485:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.626839 seconds ...[0m
+2024-01-24 16:08:13,538:	[1;35m[Coach] >>> TRAIN @Epoch: 38   >>>  || LOSS Avg: 7.76967[0m
+2024-01-24 16:08:13,539:	[1;35m[Coach] >>> VALID @Epoch: 38   >>> [0m
+2024-01-24 16:08:13,539:	[1;35m[Coach] >>> TEST  @Epoch: 38   >>> [0m
+2024-01-24 16:08:22,216:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.676683 seconds ...[0m
+2024-01-24 16:08:22,267:	[1;35m[Coach] >>> TRAIN @Epoch: 39   >>>  || LOSS Avg: 7.76506[0m
+2024-01-24 16:08:22,268:	[1;35m[Coach] >>> VALID @Epoch: 39   >>> [0m
+2024-01-24 16:08:22,268:	[1;35m[Coach] >>> TEST  @Epoch: 39   >>> [0m
+2024-01-24 16:08:30,736:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.468328 seconds ...[0m
+2024-01-24 16:08:35,339:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.560596 seconds ...[0m
+2024-01-24 16:08:35,340:	[1;35m[Coach] >>> TRAIN @Epoch: 40   >>>  || LOSS Avg: 7.76095[0m
+2024-01-24 16:08:35,340:	[1;35m[Coach] >>> VALID @Epoch: 40   >>>  || HITRATE@1 Avg: 0.0061 || HITRATE@5 Avg: 0.0247 || HITRATE@10 Avg: 0.0435 || NDCG@5 Avg: 0.0153 || NDCG@10 Avg: 0.0213 || MRR@5 Avg: 0.0122 || MRR@10 Avg: 0.0147[0m
+2024-01-24 16:08:35,340:	[1;35m[Coach] >>> TEST  @Epoch: 40   >>> [0m
+2024-01-24 16:08:44,025:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.684693 seconds ...[0m
+2024-01-24 16:08:44,128:	[1;35m[Coach] >>> TRAIN @Epoch: 41   >>>  || LOSS Avg: 7.75586[0m
+2024-01-24 16:08:44,129:	[1;35m[Coach] >>> VALID @Epoch: 41   >>> [0m
+2024-01-24 16:08:44,129:	[1;35m[Coach] >>> TEST  @Epoch: 41   >>> [0m
+2024-01-24 16:08:52,808:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.678869 seconds ...[0m
+2024-01-24 16:08:52,850:	[1;35m[Coach] >>> TRAIN @Epoch: 42   >>>  || LOSS Avg: 7.75183[0m
+2024-01-24 16:08:52,850:	[1;35m[Coach] >>> VALID @Epoch: 42   >>> [0m
+2024-01-24 16:08:52,850:	[1;35m[Coach] >>> TEST  @Epoch: 42   >>> [0m
+2024-01-24 16:09:01,600:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.749597 seconds ...[0m
+2024-01-24 16:09:01,646:	[1;35m[Coach] >>> TRAIN @Epoch: 43   >>>  || LOSS Avg: 7.74656[0m
+2024-01-24 16:09:01,646:	[1;35m[Coach] >>> VALID @Epoch: 43   >>> [0m
+2024-01-24 16:09:01,646:	[1;35m[Coach] >>> TEST  @Epoch: 43   >>> [0m
+2024-01-24 16:09:10,349:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.702513 seconds ...[0m
+2024-01-24 16:09:10,401:	[1;35m[Coach] >>> TRAIN @Epoch: 44   >>>  || LOSS Avg: 7.74176[0m
+2024-01-24 16:09:10,402:	[1;35m[Coach] >>> VALID @Epoch: 44   >>> [0m
+2024-01-24 16:09:10,402:	[1;35m[Coach] >>> TEST  @Epoch: 44   >>> [0m
+2024-01-24 16:09:19,212:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.809796 seconds ...[0m
+2024-01-24 16:09:24,264:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.945625 seconds ...[0m
+2024-01-24 16:09:24,265:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0221*** [0m
+2024-01-24 16:09:24,291:	[1;35m[Coach] >>> TRAIN @Epoch: 45   >>>  || LOSS Avg: 7.73731[0m
+2024-01-24 16:09:24,291:	[1;35m[Coach] >>> VALID @Epoch: 45   >>>  || HITRATE@1 Avg: 0.0066 || HITRATE@5 Avg: 0.0253 || HITRATE@10 Avg: 0.0448 || NDCG@5 Avg: 0.0159 || NDCG@10 Avg: 0.0221 || MRR@5 Avg: 0.0128 || MRR@10 Avg: 0.0153[0m
+2024-01-24 16:09:24,291:	[1;35m[Coach] >>> TEST  @Epoch: 45   >>> [0m
+2024-01-24 16:09:33,038:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.746290 seconds ...[0m
+2024-01-24 16:09:33,089:	[1;35m[Coach] >>> TRAIN @Epoch: 46   >>>  || LOSS Avg: 7.73213[0m
+2024-01-24 16:09:33,089:	[1;35m[Coach] >>> VALID @Epoch: 46   >>> [0m
+2024-01-24 16:09:33,089:	[1;35m[Coach] >>> TEST  @Epoch: 46   >>> [0m
+2024-01-24 16:09:41,764:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.674496 seconds ...[0m
+2024-01-24 16:09:41,808:	[1;35m[Coach] >>> TRAIN @Epoch: 47   >>>  || LOSS Avg: 7.72658[0m
+2024-01-24 16:09:41,808:	[1;35m[Coach] >>> VALID @Epoch: 47   >>> [0m
+2024-01-24 16:09:41,808:	[1;35m[Coach] >>> TEST  @Epoch: 47   >>> [0m
+2024-01-24 16:09:50,623:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.814365 seconds ...[0m
+2024-01-24 16:09:50,734:	[1;35m[Coach] >>> TRAIN @Epoch: 48   >>>  || LOSS Avg: 7.72102[0m
+2024-01-24 16:09:50,735:	[1;35m[Coach] >>> VALID @Epoch: 48   >>> [0m
+2024-01-24 16:09:50,735:	[1;35m[Coach] >>> TEST  @Epoch: 48   >>> [0m
+2024-01-24 16:10:00,018:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.282910 seconds ...[0m
+2024-01-24 16:10:00,065:	[1;35m[Coach] >>> TRAIN @Epoch: 49   >>>  || LOSS Avg: 7.71473[0m
+2024-01-24 16:10:00,066:	[1;35m[Coach] >>> VALID @Epoch: 49   >>> [0m
+2024-01-24 16:10:00,066:	[1;35m[Coach] >>> TEST  @Epoch: 49   >>> [0m
+2024-01-24 16:10:08,605:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.539004 seconds ...[0m
+2024-01-24 16:10:13,411:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.757904 seconds ...[0m
+2024-01-24 16:10:13,411:	[1;35m[Coach] >>> TRAIN @Epoch: 50   >>>  || LOSS Avg: 7.70814[0m
+2024-01-24 16:10:13,411:	[1;35m[Coach] >>> VALID @Epoch: 50   >>>  || HITRATE@1 Avg: 0.0063 || HITRATE@5 Avg: 0.0247 || HITRATE@10 Avg: 0.0438 || NDCG@5 Avg: 0.0154 || NDCG@10 Avg: 0.0215 || MRR@5 Avg: 0.0124 || MRR@10 Avg: 0.0148[0m
+2024-01-24 16:10:13,411:	[1;35m[Coach] >>> TEST  @Epoch: 50   >>> [0m
+2024-01-24 16:10:22,044:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.632487 seconds ...[0m
+2024-01-24 16:10:22,108:	[1;35m[Coach] >>> TRAIN @Epoch: 51   >>>  || LOSS Avg: 7.70177[0m
+2024-01-24 16:10:22,108:	[1;35m[Coach] >>> VALID @Epoch: 51   >>> [0m
+2024-01-24 16:10:22,108:	[1;35m[Coach] >>> TEST  @Epoch: 51   >>> [0m
+2024-01-24 16:10:30,903:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.794096 seconds ...[0m
+2024-01-24 16:10:30,952:	[1;35m[Coach] >>> TRAIN @Epoch: 52   >>>  || LOSS Avg: 7.69488[0m
+2024-01-24 16:10:30,952:	[1;35m[Coach] >>> VALID @Epoch: 52   >>> [0m
+2024-01-24 16:10:30,952:	[1;35m[Coach] >>> TEST  @Epoch: 52   >>> [0m
+2024-01-24 16:10:39,886:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.933418 seconds ...[0m
+2024-01-24 16:10:39,936:	[1;35m[Coach] >>> TRAIN @Epoch: 53   >>>  || LOSS Avg: 7.68885[0m
+2024-01-24 16:10:39,936:	[1;35m[Coach] >>> VALID @Epoch: 53   >>> [0m
+2024-01-24 16:10:39,936:	[1;35m[Coach] >>> TEST  @Epoch: 53   >>> [0m
+2024-01-24 16:10:48,662:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.725489 seconds ...[0m
+2024-01-24 16:10:48,709:	[1;35m[Coach] >>> TRAIN @Epoch: 54   >>>  || LOSS Avg: 7.68169[0m
+2024-01-24 16:10:48,709:	[1;35m[Coach] >>> VALID @Epoch: 54   >>> [0m
+2024-01-24 16:10:48,709:	[1;35m[Coach] >>> TEST  @Epoch: 54   >>> [0m
+2024-01-24 16:10:57,434:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.724289 seconds ...[0m
+2024-01-24 16:11:02,205:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.723635 seconds ...[0m
+2024-01-24 16:11:02,205:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0229*** [0m
+2024-01-24 16:11:02,232:	[1;35m[Coach] >>> TRAIN @Epoch: 55   >>>  || LOSS Avg: 7.67697[0m
+2024-01-24 16:11:02,232:	[1;35m[Coach] >>> VALID @Epoch: 55   >>>  || HITRATE@1 Avg: 0.0067 || HITRATE@5 Avg: 0.0257 || HITRATE@10 Avg: 0.0472 || NDCG@5 Avg: 0.0160 || NDCG@10 Avg: 0.0229 || MRR@5 Avg: 0.0129 || MRR@10 Avg: 0.0157[0m
+2024-01-24 16:11:02,232:	[1;35m[Coach] >>> TEST  @Epoch: 55   >>> [0m
+2024-01-24 16:11:11,192:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.959739 seconds ...[0m
+2024-01-24 16:11:11,240:	[1;35m[Coach] >>> TRAIN @Epoch: 56   >>>  || LOSS Avg: 7.67077[0m
+2024-01-24 16:11:11,240:	[1;35m[Coach] >>> VALID @Epoch: 56   >>> [0m
+2024-01-24 16:11:11,240:	[1;35m[Coach] >>> TEST  @Epoch: 56   >>> [0m
+2024-01-24 16:11:19,846:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.606044 seconds ...[0m
+2024-01-24 16:11:19,947:	[1;35m[Coach] >>> TRAIN @Epoch: 57   >>>  || LOSS Avg: 7.66552[0m
+2024-01-24 16:11:19,948:	[1;35m[Coach] >>> VALID @Epoch: 57   >>> [0m
+2024-01-24 16:11:19,948:	[1;35m[Coach] >>> TEST  @Epoch: 57   >>> [0m
+2024-01-24 16:11:28,961:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.012572 seconds ...[0m
+2024-01-24 16:11:29,007:	[1;35m[Coach] >>> TRAIN @Epoch: 58   >>>  || LOSS Avg: 7.66255[0m
+2024-01-24 16:11:29,007:	[1;35m[Coach] >>> VALID @Epoch: 58   >>> [0m
+2024-01-24 16:11:29,007:	[1;35m[Coach] >>> TEST  @Epoch: 58   >>> [0m
+2024-01-24 16:11:37,392:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.384459 seconds ...[0m
+2024-01-24 16:11:37,438:	[1;35m[Coach] >>> TRAIN @Epoch: 59   >>>  || LOSS Avg: 7.65747[0m
+2024-01-24 16:11:37,438:	[1;35m[Coach] >>> VALID @Epoch: 59   >>> [0m
+2024-01-24 16:11:37,439:	[1;35m[Coach] >>> TEST  @Epoch: 59   >>> [0m
+2024-01-24 16:11:45,969:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.530662 seconds ...[0m
+2024-01-24 16:11:50,636:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.617466 seconds ...[0m
+2024-01-24 16:11:50,636:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0235*** [0m
+2024-01-24 16:11:50,657:	[1;35m[Coach] >>> TRAIN @Epoch: 60   >>>  || LOSS Avg: 7.65303[0m
+2024-01-24 16:11:50,657:	[1;35m[Coach] >>> VALID @Epoch: 60   >>>  || HITRATE@1 Avg: 0.0069 || HITRATE@5 Avg: 0.0274 || HITRATE@10 Avg: 0.0476 || NDCG@5 Avg: 0.0170 || NDCG@10 Avg: 0.0235 || MRR@5 Avg: 0.0136 || MRR@10 Avg: 0.0163[0m
+2024-01-24 16:11:50,657:	[1;35m[Coach] >>> TEST  @Epoch: 60   >>> [0m
+2024-01-24 16:11:59,501:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.843720 seconds ...[0m
+2024-01-24 16:11:59,551:	[1;35m[Coach] >>> TRAIN @Epoch: 61   >>>  || LOSS Avg: 7.64878[0m
+2024-01-24 16:11:59,552:	[1;35m[Coach] >>> VALID @Epoch: 61   >>> [0m
+2024-01-24 16:11:59,552:	[1;35m[Coach] >>> TEST  @Epoch: 61   >>> [0m
+2024-01-24 16:12:08,308:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.756330 seconds ...[0m
+2024-01-24 16:12:08,354:	[1;35m[Coach] >>> TRAIN @Epoch: 62   >>>  || LOSS Avg: 7.64489[0m
+2024-01-24 16:12:08,355:	[1;35m[Coach] >>> VALID @Epoch: 62   >>> [0m
+2024-01-24 16:12:08,355:	[1;35m[Coach] >>> TEST  @Epoch: 62   >>> [0m
+2024-01-24 16:12:17,046:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.690634 seconds ...[0m
+2024-01-24 16:12:17,099:	[1;35m[Coach] >>> TRAIN @Epoch: 63   >>>  || LOSS Avg: 7.64174[0m
+2024-01-24 16:12:17,099:	[1;35m[Coach] >>> VALID @Epoch: 63   >>> [0m
+2024-01-24 16:12:17,099:	[1;35m[Coach] >>> TEST  @Epoch: 63   >>> [0m
+2024-01-24 16:12:25,556:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.456203 seconds ...[0m
+2024-01-24 16:12:25,655:	[1;35m[Coach] >>> TRAIN @Epoch: 64   >>>  || LOSS Avg: 7.63803[0m
+2024-01-24 16:12:25,655:	[1;35m[Coach] >>> VALID @Epoch: 64   >>> [0m
+2024-01-24 16:12:25,655:	[1;35m[Coach] >>> TEST  @Epoch: 64   >>> [0m
+2024-01-24 16:12:34,202:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.546561 seconds ...[0m
+2024-01-24 16:12:39,385:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.133785 seconds ...[0m
+2024-01-24 16:12:39,386:	[1;35m[Coach] >>> TRAIN @Epoch: 65   >>>  || LOSS Avg: 7.63653[0m
+2024-01-24 16:12:39,386:	[1;35m[Coach] >>> VALID @Epoch: 65   >>>  || HITRATE@1 Avg: 0.0064 || HITRATE@5 Avg: 0.0283 || HITRATE@10 Avg: 0.0474 || NDCG@5 Avg: 0.0172 || NDCG@10 Avg: 0.0234 || MRR@5 Avg: 0.0137 || MRR@10 Avg: 0.0162[0m
+2024-01-24 16:12:39,386:	[1;35m[Coach] >>> TEST  @Epoch: 65   >>> [0m
+2024-01-24 16:12:47,915:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.528680 seconds ...[0m
+2024-01-24 16:12:48,020:	[1;35m[Coach] >>> TRAIN @Epoch: 66   >>>  || LOSS Avg: 7.63367[0m
+2024-01-24 16:12:48,020:	[1;35m[Coach] >>> VALID @Epoch: 66   >>> [0m
+2024-01-24 16:12:48,020:	[1;35m[Coach] >>> TEST  @Epoch: 66   >>> [0m
+2024-01-24 16:12:56,641:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.620819 seconds ...[0m
+2024-01-24 16:12:56,747:	[1;35m[Coach] >>> TRAIN @Epoch: 67   >>>  || LOSS Avg: 7.62940[0m
+2024-01-24 16:12:56,748:	[1;35m[Coach] >>> VALID @Epoch: 67   >>> [0m
+2024-01-24 16:12:56,748:	[1;35m[Coach] >>> TEST  @Epoch: 67   >>> [0m
+2024-01-24 16:13:05,309:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.560897 seconds ...[0m
+2024-01-24 16:13:05,361:	[1;35m[Coach] >>> TRAIN @Epoch: 68   >>>  || LOSS Avg: 7.62852[0m
+2024-01-24 16:13:05,361:	[1;35m[Coach] >>> VALID @Epoch: 68   >>> [0m
+2024-01-24 16:13:05,361:	[1;35m[Coach] >>> TEST  @Epoch: 68   >>> [0m
+2024-01-24 16:13:14,213:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.851586 seconds ...[0m
+2024-01-24 16:13:14,261:	[1;35m[Coach] >>> TRAIN @Epoch: 69   >>>  || LOSS Avg: 7.62492[0m
+2024-01-24 16:13:14,261:	[1;35m[Coach] >>> VALID @Epoch: 69   >>> [0m
+2024-01-24 16:13:14,261:	[1;35m[Coach] >>> TEST  @Epoch: 69   >>> [0m
+2024-01-24 16:13:22,817:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.555383 seconds ...[0m
+2024-01-24 16:13:27,884:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.017516 seconds ...[0m
+2024-01-24 16:13:27,884:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0237*** [0m
+2024-01-24 16:13:27,902:	[1;35m[Coach] >>> TRAIN @Epoch: 70   >>>  || LOSS Avg: 7.62391[0m
+2024-01-24 16:13:27,902:	[1;35m[Coach] >>> VALID @Epoch: 70   >>>  || HITRATE@1 Avg: 0.0070 || HITRATE@5 Avg: 0.0280 || HITRATE@10 Avg: 0.0478 || NDCG@5 Avg: 0.0174 || NDCG@10 Avg: 0.0237 || MRR@5 Avg: 0.0139 || MRR@10 Avg: 0.0165[0m
+2024-01-24 16:13:27,902:	[1;35m[Coach] >>> TEST  @Epoch: 70   >>> [0m
+2024-01-24 16:13:36,447:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.544764 seconds ...[0m
+2024-01-24 16:13:36,493:	[1;35m[Coach] >>> TRAIN @Epoch: 71   >>>  || LOSS Avg: 7.61964[0m
+2024-01-24 16:13:36,495:	[1;35m[Coach] >>> VALID @Epoch: 71   >>> [0m
+2024-01-24 16:13:36,495:	[1;35m[Coach] >>> TEST  @Epoch: 71   >>> [0m
+2024-01-24 16:13:45,185:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.690046 seconds ...[0m
+2024-01-24 16:13:45,236:	[1;35m[Coach] >>> TRAIN @Epoch: 72   >>>  || LOSS Avg: 7.61697[0m
+2024-01-24 16:13:45,236:	[1;35m[Coach] >>> VALID @Epoch: 72   >>> [0m
+2024-01-24 16:13:45,236:	[1;35m[Coach] >>> TEST  @Epoch: 72   >>> [0m
+2024-01-24 16:13:53,731:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.495010 seconds ...[0m
+2024-01-24 16:13:53,832:	[1;35m[Coach] >>> TRAIN @Epoch: 73   >>>  || LOSS Avg: 7.61494[0m
+2024-01-24 16:13:53,833:	[1;35m[Coach] >>> VALID @Epoch: 73   >>> [0m
+2024-01-24 16:13:53,833:	[1;35m[Coach] >>> TEST  @Epoch: 73   >>> [0m
+2024-01-24 16:14:02,368:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.535104 seconds ...[0m
+2024-01-24 16:14:02,411:	[1;35m[Coach] >>> TRAIN @Epoch: 74   >>>  || LOSS Avg: 7.61317[0m
+2024-01-24 16:14:02,411:	[1;35m[Coach] >>> VALID @Epoch: 74   >>> [0m
+2024-01-24 16:14:02,411:	[1;35m[Coach] >>> TEST  @Epoch: 74   >>> [0m
+2024-01-24 16:14:11,288:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.876620 seconds ...[0m
+2024-01-24 16:14:16,132:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.792988 seconds ...[0m
+2024-01-24 16:14:16,133:	[1;35m[Coach] >>> TRAIN @Epoch: 75   >>>  || LOSS Avg: 7.61022[0m
+2024-01-24 16:14:16,133:	[1;35m[Coach] >>> VALID @Epoch: 75   >>>  || HITRATE@1 Avg: 0.0068 || HITRATE@5 Avg: 0.0268 || HITRATE@10 Avg: 0.0470 || NDCG@5 Avg: 0.0167 || NDCG@10 Avg: 0.0232 || MRR@5 Avg: 0.0134 || MRR@10 Avg: 0.0161[0m
+2024-01-24 16:14:16,133:	[1;35m[Coach] >>> TEST  @Epoch: 75   >>> [0m
+2024-01-24 16:14:24,927:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.794069 seconds ...[0m
+2024-01-24 16:14:24,977:	[1;35m[Coach] >>> TRAIN @Epoch: 76   >>>  || LOSS Avg: 7.60812[0m
+2024-01-24 16:14:24,977:	[1;35m[Coach] >>> VALID @Epoch: 76   >>> [0m
+2024-01-24 16:14:24,977:	[1;35m[Coach] >>> TEST  @Epoch: 76   >>> [0m
+2024-01-24 16:14:33,431:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.453999 seconds ...[0m
+2024-01-24 16:14:33,480:	[1;35m[Coach] >>> TRAIN @Epoch: 77   >>>  || LOSS Avg: 7.60654[0m
+2024-01-24 16:14:33,480:	[1;35m[Coach] >>> VALID @Epoch: 77   >>> [0m
+2024-01-24 16:14:33,480:	[1;35m[Coach] >>> TEST  @Epoch: 77   >>> [0m
+2024-01-24 16:14:41,922:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.442199 seconds ...[0m
+2024-01-24 16:14:41,969:	[1;35m[Coach] >>> TRAIN @Epoch: 78   >>>  || LOSS Avg: 7.60340[0m
+2024-01-24 16:14:41,969:	[1;35m[Coach] >>> VALID @Epoch: 78   >>> [0m
+2024-01-24 16:14:41,969:	[1;35m[Coach] >>> TEST  @Epoch: 78   >>> [0m
+2024-01-24 16:14:50,778:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.808475 seconds ...[0m
+2024-01-24 16:14:50,825:	[1;35m[Coach] >>> TRAIN @Epoch: 79   >>>  || LOSS Avg: 7.60261[0m
+2024-01-24 16:14:50,825:	[1;35m[Coach] >>> VALID @Epoch: 79   >>> [0m
+2024-01-24 16:14:50,826:	[1;35m[Coach] >>> TEST  @Epoch: 79   >>> [0m
+2024-01-24 16:14:59,517:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.691369 seconds ...[0m
+2024-01-24 16:15:04,295:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.682374 seconds ...[0m
+2024-01-24 16:15:04,295:	[1;35m[Coach] >>> TRAIN @Epoch: 80   >>>  || LOSS Avg: 7.60065[0m
+2024-01-24 16:15:04,295:	[1;35m[Coach] >>> VALID @Epoch: 80   >>>  || HITRATE@1 Avg: 0.0062 || HITRATE@5 Avg: 0.0270 || HITRATE@10 Avg: 0.0462 || NDCG@5 Avg: 0.0166 || NDCG@10 Avg: 0.0227 || MRR@5 Avg: 0.0132 || MRR@10 Avg: 0.0157[0m
+2024-01-24 16:15:04,295:	[1;35m[Coach] >>> TEST  @Epoch: 80   >>> [0m
+2024-01-24 16:15:12,795:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.499616 seconds ...[0m
+2024-01-24 16:15:12,843:	[1;35m[Coach] >>> TRAIN @Epoch: 81   >>>  || LOSS Avg: 7.59756[0m
+2024-01-24 16:15:12,844:	[1;35m[Coach] >>> VALID @Epoch: 81   >>> [0m
+2024-01-24 16:15:12,844:	[1;35m[Coach] >>> TEST  @Epoch: 81   >>> [0m
+2024-01-24 16:15:21,440:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.595743 seconds ...[0m
+2024-01-24 16:15:21,543:	[1;35m[Coach] >>> TRAIN @Epoch: 82   >>>  || LOSS Avg: 7.59562[0m
+2024-01-24 16:15:21,544:	[1;35m[Coach] >>> VALID @Epoch: 82   >>> [0m
+2024-01-24 16:15:21,544:	[1;35m[Coach] >>> TEST  @Epoch: 82   >>> [0m
+2024-01-24 16:15:30,438:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.893841 seconds ...[0m
+2024-01-24 16:15:30,484:	[1;35m[Coach] >>> TRAIN @Epoch: 83   >>>  || LOSS Avg: 7.59402[0m
+2024-01-24 16:15:30,485:	[1;35m[Coach] >>> VALID @Epoch: 83   >>> [0m
+2024-01-24 16:15:30,485:	[1;35m[Coach] >>> TEST  @Epoch: 83   >>> [0m
+2024-01-24 16:15:38,964:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.479297 seconds ...[0m
+2024-01-24 16:15:39,009:	[1;35m[Coach] >>> TRAIN @Epoch: 84   >>>  || LOSS Avg: 7.59159[0m
+2024-01-24 16:15:39,009:	[1;35m[Coach] >>> VALID @Epoch: 84   >>> [0m
+2024-01-24 16:15:39,009:	[1;35m[Coach] >>> TEST  @Epoch: 84   >>> [0m
+2024-01-24 16:15:47,638:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.628965 seconds ...[0m
+2024-01-24 16:15:52,491:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.803728 seconds ...[0m
+2024-01-24 16:15:52,492:	[1;35m[Coach] >>> TRAIN @Epoch: 85   >>>  || LOSS Avg: 7.58957[0m
+2024-01-24 16:15:52,492:	[1;35m[Coach] >>> VALID @Epoch: 85   >>>  || HITRATE@1 Avg: 0.0072 || HITRATE@5 Avg: 0.0267 || HITRATE@10 Avg: 0.0475 || NDCG@5 Avg: 0.0169 || NDCG@10 Avg: 0.0236 || MRR@5 Avg: 0.0137 || MRR@10 Avg: 0.0164[0m
+2024-01-24 16:15:52,492:	[1;35m[Coach] >>> TEST  @Epoch: 85   >>> [0m
+2024-01-24 16:16:00,984:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.491893 seconds ...[0m
+2024-01-24 16:16:01,040:	[1;35m[Coach] >>> TRAIN @Epoch: 86   >>>  || LOSS Avg: 7.58803[0m
+2024-01-24 16:16:01,040:	[1;35m[Coach] >>> VALID @Epoch: 86   >>> [0m
+2024-01-24 16:16:01,040:	[1;35m[Coach] >>> TEST  @Epoch: 86   >>> [0m
+2024-01-24 16:16:09,762:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.721264 seconds ...[0m
+2024-01-24 16:16:09,805:	[1;35m[Coach] >>> TRAIN @Epoch: 87   >>>  || LOSS Avg: 7.58577[0m
+2024-01-24 16:16:09,805:	[1;35m[Coach] >>> VALID @Epoch: 87   >>> [0m
+2024-01-24 16:16:09,806:	[1;35m[Coach] >>> TEST  @Epoch: 87   >>> [0m
+2024-01-24 16:16:18,344:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.537210 seconds ...[0m
+2024-01-24 16:16:18,446:	[1;35m[Coach] >>> TRAIN @Epoch: 88   >>>  || LOSS Avg: 7.58399[0m
+2024-01-24 16:16:18,447:	[1;35m[Coach] >>> VALID @Epoch: 88   >>> [0m
+2024-01-24 16:16:18,447:	[1;35m[Coach] >>> TEST  @Epoch: 88   >>> [0m
+2024-01-24 16:16:27,342:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.894707 seconds ...[0m
+2024-01-24 16:16:27,448:	[1;35m[Coach] >>> TRAIN @Epoch: 89   >>>  || LOSS Avg: 7.58202[0m
+2024-01-24 16:16:27,448:	[1;35m[Coach] >>> VALID @Epoch: 89   >>> [0m
+2024-01-24 16:16:27,448:	[1;35m[Coach] >>> TEST  @Epoch: 89   >>> [0m
+2024-01-24 16:16:36,062:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.613693 seconds ...[0m
+2024-01-24 16:16:40,771:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.659118 seconds ...[0m
+2024-01-24 16:16:40,772:	[1;35m[Coach] >>> TRAIN @Epoch: 90   >>>  || LOSS Avg: 7.57963[0m
+2024-01-24 16:16:40,772:	[1;35m[Coach] >>> VALID @Epoch: 90   >>>  || HITRATE@1 Avg: 0.0070 || HITRATE@5 Avg: 0.0278 || HITRATE@10 Avg: 0.0467 || NDCG@5 Avg: 0.0174 || NDCG@10 Avg: 0.0234 || MRR@5 Avg: 0.0139 || MRR@10 Avg: 0.0164[0m
+2024-01-24 16:16:40,772:	[1;35m[Coach] >>> TEST  @Epoch: 90   >>> [0m
+2024-01-24 16:16:49,324:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.551403 seconds ...[0m
+2024-01-24 16:16:49,376:	[1;35m[Coach] >>> TRAIN @Epoch: 91   >>>  || LOSS Avg: 7.57842[0m
+2024-01-24 16:16:49,376:	[1;35m[Coach] >>> VALID @Epoch: 91   >>> [0m
+2024-01-24 16:16:49,377:	[1;35m[Coach] >>> TEST  @Epoch: 91   >>> [0m
+2024-01-24 16:16:57,954:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.577642 seconds ...[0m
+2024-01-24 16:16:58,062:	[1;35m[Coach] >>> TRAIN @Epoch: 92   >>>  || LOSS Avg: 7.57686[0m
+2024-01-24 16:16:58,062:	[1;35m[Coach] >>> VALID @Epoch: 92   >>> [0m
+2024-01-24 16:16:58,062:	[1;35m[Coach] >>> TEST  @Epoch: 92   >>> [0m
+2024-01-24 16:17:06,657:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.594210 seconds ...[0m
+2024-01-24 16:17:06,707:	[1;35m[Coach] >>> TRAIN @Epoch: 93   >>>  || LOSS Avg: 7.57724[0m
+2024-01-24 16:17:06,708:	[1;35m[Coach] >>> VALID @Epoch: 93   >>> [0m
+2024-01-24 16:17:06,708:	[1;35m[Coach] >>> TEST  @Epoch: 93   >>> [0m
+2024-01-24 16:17:15,596:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.888148 seconds ...[0m
+2024-01-24 16:17:15,646:	[1;35m[Coach] >>> TRAIN @Epoch: 94   >>>  || LOSS Avg: 7.57409[0m
+2024-01-24 16:17:15,646:	[1;35m[Coach] >>> VALID @Epoch: 94   >>> [0m
+2024-01-24 16:17:15,646:	[1;35m[Coach] >>> TEST  @Epoch: 94   >>> [0m
+2024-01-24 16:17:24,577:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.931084 seconds ...[0m
+2024-01-24 16:17:30,128:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.208398 seconds ...[0m
+2024-01-24 16:17:30,129:	[1;35m[Coach] >>> TRAIN @Epoch: 95   >>>  || LOSS Avg: 7.57121[0m
+2024-01-24 16:17:30,129:	[1;35m[Coach] >>> VALID @Epoch: 95   >>>  || HITRATE@1 Avg: 0.0063 || HITRATE@5 Avg: 0.0275 || HITRATE@10 Avg: 0.0466 || NDCG@5 Avg: 0.0169 || NDCG@10 Avg: 0.0230 || MRR@5 Avg: 0.0134 || MRR@10 Avg: 0.0159[0m
+2024-01-24 16:17:30,129:	[1;35m[Coach] >>> TEST  @Epoch: 95   >>> [0m
+2024-01-24 16:17:39,168:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.039100 seconds ...[0m
+2024-01-24 16:17:39,214:	[1;35m[Coach] >>> TRAIN @Epoch: 96   >>>  || LOSS Avg: 7.57020[0m
+2024-01-24 16:17:39,214:	[1;35m[Coach] >>> VALID @Epoch: 96   >>> [0m
+2024-01-24 16:17:39,214:	[1;35m[Coach] >>> TEST  @Epoch: 96   >>> [0m
+2024-01-24 16:17:48,510:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.295165 seconds ...[0m
+2024-01-24 16:17:48,559:	[1;35m[Coach] >>> TRAIN @Epoch: 97   >>>  || LOSS Avg: 7.56864[0m
+2024-01-24 16:17:48,559:	[1;35m[Coach] >>> VALID @Epoch: 97   >>> [0m
+2024-01-24 16:17:48,559:	[1;35m[Coach] >>> TEST  @Epoch: 97   >>> [0m
+2024-01-24 16:17:58,189:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.629876 seconds ...[0m
+2024-01-24 16:17:58,293:	[1;35m[Coach] >>> TRAIN @Epoch: 98   >>>  || LOSS Avg: 7.56670[0m
+2024-01-24 16:17:58,293:	[1;35m[Coach] >>> VALID @Epoch: 98   >>> [0m
+2024-01-24 16:17:58,293:	[1;35m[Coach] >>> TEST  @Epoch: 98   >>> [0m
+2024-01-24 16:18:06,839:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.545923 seconds ...[0m
+2024-01-24 16:18:06,945:	[1;35m[Coach] >>> TRAIN @Epoch: 99   >>>  || LOSS Avg: 7.56569[0m
+2024-01-24 16:18:06,945:	[1;35m[Coach] >>> VALID @Epoch: 99   >>> [0m
+2024-01-24 16:18:06,945:	[1;35m[Coach] >>> TEST  @Epoch: 99   >>> [0m
+2024-01-24 16:18:15,956:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.010717 seconds ...[0m
+2024-01-24 16:18:20,920:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.919118 seconds ...[0m
+2024-01-24 16:18:20,921:	[1;35m[Coach] >>> TRAIN @Epoch: 100  >>>  || LOSS Avg: 7.56388[0m
+2024-01-24 16:18:20,921:	[1;35m[Coach] >>> VALID @Epoch: 100  >>>  || HITRATE@1 Avg: 0.0065 || HITRATE@5 Avg: 0.0272 || HITRATE@10 Avg: 0.0489 || NDCG@5 Avg: 0.0167 || NDCG@10 Avg: 0.0236 || MRR@5 Avg: 0.0133 || MRR@10 Avg: 0.0161[0m
+2024-01-24 16:18:20,921:	[1;35m[Coach] >>> TEST  @Epoch: 100  >>> [0m
+2024-01-24 16:18:29,888:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.966932 seconds ...[0m
+2024-01-24 16:18:29,936:	[1;35m[Coach] >>> TRAIN @Epoch: 101  >>>  || LOSS Avg: 7.56151[0m
+2024-01-24 16:18:29,937:	[1;35m[Coach] >>> VALID @Epoch: 101  >>> [0m
+2024-01-24 16:18:29,937:	[1;35m[Coach] >>> TEST  @Epoch: 101  >>> [0m
+2024-01-24 16:18:38,956:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.019212 seconds ...[0m
+2024-01-24 16:18:39,010:	[1;35m[Coach] >>> TRAIN @Epoch: 102  >>>  || LOSS Avg: 7.55945[0m
+2024-01-24 16:18:39,010:	[1;35m[Coach] >>> VALID @Epoch: 102  >>> [0m
+2024-01-24 16:18:39,010:	[1;35m[Coach] >>> TEST  @Epoch: 102  >>> [0m
+2024-01-24 16:18:48,154:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.143562 seconds ...[0m
+2024-01-24 16:18:48,205:	[1;35m[Coach] >>> TRAIN @Epoch: 103  >>>  || LOSS Avg: 7.55852[0m
+2024-01-24 16:18:48,205:	[1;35m[Coach] >>> VALID @Epoch: 103  >>> [0m
+2024-01-24 16:18:48,205:	[1;35m[Coach] >>> TEST  @Epoch: 103  >>> [0m
+2024-01-24 16:18:57,072:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.867159 seconds ...[0m
+2024-01-24 16:18:57,190:	[1;35m[Coach] >>> TRAIN @Epoch: 104  >>>  || LOSS Avg: 7.55520[0m
+2024-01-24 16:18:57,191:	[1;35m[Coach] >>> VALID @Epoch: 104  >>> [0m
+2024-01-24 16:18:57,191:	[1;35m[Coach] >>> TEST  @Epoch: 104  >>> [0m
+2024-01-24 16:19:06,159:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.968434 seconds ...[0m
+2024-01-24 16:19:11,334:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.066721 seconds ...[0m
+2024-01-24 16:19:11,335:	[1;35m[Coach] >>> TRAIN @Epoch: 105  >>>  || LOSS Avg: 7.55311[0m
+2024-01-24 16:19:11,335:	[1;35m[Coach] >>> VALID @Epoch: 105  >>>  || HITRATE@1 Avg: 0.0067 || HITRATE@5 Avg: 0.0266 || HITRATE@10 Avg: 0.0481 || NDCG@5 Avg: 0.0166 || NDCG@10 Avg: 0.0235 || MRR@5 Avg: 0.0134 || MRR@10 Avg: 0.0162[0m
+2024-01-24 16:19:11,335:	[1;35m[Coach] >>> TEST  @Epoch: 105  >>> [0m
+2024-01-24 16:19:20,682:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.346461 seconds ...[0m
+2024-01-24 16:19:20,727:	[1;35m[Coach] >>> TRAIN @Epoch: 106  >>>  || LOSS Avg: 7.55096[0m
+2024-01-24 16:19:20,727:	[1;35m[Coach] >>> VALID @Epoch: 106  >>> [0m
+2024-01-24 16:19:20,727:	[1;35m[Coach] >>> TEST  @Epoch: 106  >>> [0m
+2024-01-24 16:19:29,761:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.032774 seconds ...[0m
+2024-01-24 16:19:29,815:	[1;35m[Coach] >>> TRAIN @Epoch: 107  >>>  || LOSS Avg: 7.54642[0m
+2024-01-24 16:19:29,815:	[1;35m[Coach] >>> VALID @Epoch: 107  >>> [0m
+2024-01-24 16:19:29,816:	[1;35m[Coach] >>> TEST  @Epoch: 107  >>> [0m
+2024-01-24 16:19:38,550:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.734013 seconds ...[0m
+2024-01-24 16:19:38,595:	[1;35m[Coach] >>> TRAIN @Epoch: 108  >>>  || LOSS Avg: 7.54356[0m
+2024-01-24 16:19:38,595:	[1;35m[Coach] >>> VALID @Epoch: 108  >>> [0m
+2024-01-24 16:19:38,595:	[1;35m[Coach] >>> TEST  @Epoch: 108  >>> [0m
+2024-01-24 16:19:47,685:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.090201 seconds ...[0m
+2024-01-24 16:19:47,732:	[1;35m[Coach] >>> TRAIN @Epoch: 109  >>>  || LOSS Avg: 7.54064[0m
+2024-01-24 16:19:47,732:	[1;35m[Coach] >>> VALID @Epoch: 109  >>> [0m
+2024-01-24 16:19:47,732:	[1;35m[Coach] >>> TEST  @Epoch: 109  >>> [0m
+2024-01-24 16:19:56,352:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.619730 seconds ...[0m
+2024-01-24 16:20:01,177:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.780857 seconds ...[0m
+2024-01-24 16:20:01,178:	[1;35m[Coach] >>> TRAIN @Epoch: 110  >>>  || LOSS Avg: 7.53725[0m
+2024-01-24 16:20:01,178:	[1;35m[Coach] >>> VALID @Epoch: 110  >>>  || HITRATE@1 Avg: 0.0068 || HITRATE@5 Avg: 0.0272 || HITRATE@10 Avg: 0.0474 || NDCG@5 Avg: 0.0170 || NDCG@10 Avg: 0.0234 || MRR@5 Avg: 0.0136 || MRR@10 Avg: 0.0162[0m
+2024-01-24 16:20:01,178:	[1;35m[Coach] >>> TEST  @Epoch: 110  >>> [0m
+2024-01-24 16:20:09,891:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.712385 seconds ...[0m
+2024-01-24 16:20:09,935:	[1;35m[Coach] >>> TRAIN @Epoch: 111  >>>  || LOSS Avg: 7.53531[0m
+2024-01-24 16:20:09,935:	[1;35m[Coach] >>> VALID @Epoch: 111  >>> [0m
+2024-01-24 16:20:09,935:	[1;35m[Coach] >>> TEST  @Epoch: 111  >>> [0m
+2024-01-24 16:20:18,428:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.492594 seconds ...[0m
+2024-01-24 16:20:18,473:	[1;35m[Coach] >>> TRAIN @Epoch: 112  >>>  || LOSS Avg: 7.53149[0m
+2024-01-24 16:20:18,474:	[1;35m[Coach] >>> VALID @Epoch: 112  >>> [0m
+2024-01-24 16:20:18,474:	[1;35m[Coach] >>> TEST  @Epoch: 112  >>> [0m
+2024-01-24 16:20:26,844:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.370047 seconds ...[0m
+2024-01-24 16:20:26,909:	[1;35m[Coach] >>> TRAIN @Epoch: 113  >>>  || LOSS Avg: 7.52769[0m
+2024-01-24 16:20:26,909:	[1;35m[Coach] >>> VALID @Epoch: 113  >>> [0m
+2024-01-24 16:20:26,910:	[1;35m[Coach] >>> TEST  @Epoch: 113  >>> [0m
+2024-01-24 16:20:35,957:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.046262 seconds ...[0m
+2024-01-24 16:20:36,059:	[1;35m[Coach] >>> TRAIN @Epoch: 114  >>>  || LOSS Avg: 7.52554[0m
+2024-01-24 16:20:36,059:	[1;35m[Coach] >>> VALID @Epoch: 114  >>> [0m
+2024-01-24 16:20:36,059:	[1;35m[Coach] >>> TEST  @Epoch: 114  >>> [0m
+2024-01-24 16:20:44,841:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.781941 seconds ...[0m
+2024-01-24 16:20:49,733:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.843123 seconds ...[0m
+2024-01-24 16:20:49,734:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0244*** [0m
+2024-01-24 16:20:49,755:	[1;35m[Coach] >>> TRAIN @Epoch: 115  >>>  || LOSS Avg: 7.52290[0m
+2024-01-24 16:20:49,755:	[1;35m[Coach] >>> VALID @Epoch: 115  >>>  || HITRATE@1 Avg: 0.0070 || HITRATE@5 Avg: 0.0291 || HITRATE@10 Avg: 0.0492 || NDCG@5 Avg: 0.0180 || NDCG@10 Avg: 0.0244 || MRR@5 Avg: 0.0143 || MRR@10 Avg: 0.0169[0m
+2024-01-24 16:20:49,755:	[1;35m[Coach] >>> TEST  @Epoch: 115  >>> [0m
+2024-01-24 16:20:58,671:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.915862 seconds ...[0m
+2024-01-24 16:20:58,721:	[1;35m[Coach] >>> TRAIN @Epoch: 116  >>>  || LOSS Avg: 7.52017[0m
+2024-01-24 16:20:58,722:	[1;35m[Coach] >>> VALID @Epoch: 116  >>> [0m
+2024-01-24 16:20:58,722:	[1;35m[Coach] >>> TEST  @Epoch: 116  >>> [0m
+2024-01-24 16:21:07,248:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.526427 seconds ...[0m
+2024-01-24 16:21:07,294:	[1;35m[Coach] >>> TRAIN @Epoch: 117  >>>  || LOSS Avg: 7.51704[0m
+2024-01-24 16:21:07,294:	[1;35m[Coach] >>> VALID @Epoch: 117  >>> [0m
+2024-01-24 16:21:07,294:	[1;35m[Coach] >>> TEST  @Epoch: 117  >>> [0m
+2024-01-24 16:21:16,004:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.709329 seconds ...[0m
+2024-01-24 16:21:16,058:	[1;35m[Coach] >>> TRAIN @Epoch: 118  >>>  || LOSS Avg: 7.51382[0m
+2024-01-24 16:21:16,058:	[1;35m[Coach] >>> VALID @Epoch: 118  >>> [0m
+2024-01-24 16:21:16,058:	[1;35m[Coach] >>> TEST  @Epoch: 118  >>> [0m
+2024-01-24 16:21:25,012:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.953571 seconds ...[0m
+2024-01-24 16:21:25,060:	[1;35m[Coach] >>> TRAIN @Epoch: 119  >>>  || LOSS Avg: 7.51209[0m
+2024-01-24 16:21:25,061:	[1;35m[Coach] >>> VALID @Epoch: 119  >>> [0m
+2024-01-24 16:21:25,061:	[1;35m[Coach] >>> TEST  @Epoch: 119  >>> [0m
+2024-01-24 16:21:34,020:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.958872 seconds ...[0m
+2024-01-24 16:21:39,241:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.173933 seconds ...[0m
+2024-01-24 16:21:39,242:	[1;35m[Coach] >>> TRAIN @Epoch: 120  >>>  || LOSS Avg: 7.50889[0m
+2024-01-24 16:21:39,242:	[1;35m[Coach] >>> VALID @Epoch: 120  >>>  || HITRATE@1 Avg: 0.0068 || HITRATE@5 Avg: 0.0292 || HITRATE@10 Avg: 0.0490 || NDCG@5 Avg: 0.0180 || NDCG@10 Avg: 0.0243 || MRR@5 Avg: 0.0143 || MRR@10 Avg: 0.0169[0m
+2024-01-24 16:21:39,242:	[1;35m[Coach] >>> TEST  @Epoch: 120  >>> [0m
+2024-01-24 16:21:48,259:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.016809 seconds ...[0m
+2024-01-24 16:21:48,359:	[1;35m[Coach] >>> TRAIN @Epoch: 121  >>>  || LOSS Avg: 7.50646[0m
+2024-01-24 16:21:48,359:	[1;35m[Coach] >>> VALID @Epoch: 121  >>> [0m
+2024-01-24 16:21:48,359:	[1;35m[Coach] >>> TEST  @Epoch: 121  >>> [0m
+2024-01-24 16:21:57,109:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.749460 seconds ...[0m
+2024-01-24 16:21:57,156:	[1;35m[Coach] >>> TRAIN @Epoch: 122  >>>  || LOSS Avg: 7.50416[0m
+2024-01-24 16:21:57,156:	[1;35m[Coach] >>> VALID @Epoch: 122  >>> [0m
+2024-01-24 16:21:57,156:	[1;35m[Coach] >>> TEST  @Epoch: 122  >>> [0m
+2024-01-24 16:22:05,991:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.834595 seconds ...[0m
+2024-01-24 16:22:06,043:	[1;35m[Coach] >>> TRAIN @Epoch: 123  >>>  || LOSS Avg: 7.50202[0m
+2024-01-24 16:22:06,043:	[1;35m[Coach] >>> VALID @Epoch: 123  >>> [0m
+2024-01-24 16:22:06,043:	[1;35m[Coach] >>> TEST  @Epoch: 123  >>> [0m
+2024-01-24 16:22:14,806:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.762728 seconds ...[0m
+2024-01-24 16:22:14,850:	[1;35m[Coach] >>> TRAIN @Epoch: 124  >>>  || LOSS Avg: 7.49959[0m
+2024-01-24 16:22:14,851:	[1;35m[Coach] >>> VALID @Epoch: 124  >>> [0m
+2024-01-24 16:22:14,851:	[1;35m[Coach] >>> TEST  @Epoch: 124  >>> [0m
+2024-01-24 16:22:23,484:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.632922 seconds ...[0m
+2024-01-24 16:22:28,266:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.733373 seconds ...[0m
+2024-01-24 16:22:28,267:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0246*** [0m
+2024-01-24 16:22:28,288:	[1;35m[Coach] >>> TRAIN @Epoch: 125  >>>  || LOSS Avg: 7.49887[0m
+2024-01-24 16:22:28,289:	[1;35m[Coach] >>> VALID @Epoch: 125  >>>  || HITRATE@1 Avg: 0.0077 || HITRATE@5 Avg: 0.0285 || HITRATE@10 Avg: 0.0490 || NDCG@5 Avg: 0.0180 || NDCG@10 Avg: 0.0246 || MRR@5 Avg: 0.0146 || MRR@10 Avg: 0.0173[0m
+2024-01-24 16:22:28,289:	[1;35m[Coach] >>> TEST  @Epoch: 125  >>> [0m
+2024-01-24 16:22:36,910:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.620856 seconds ...[0m
+2024-01-24 16:22:36,960:	[1;35m[Coach] >>> TRAIN @Epoch: 126  >>>  || LOSS Avg: 7.49636[0m
+2024-01-24 16:22:36,960:	[1;35m[Coach] >>> VALID @Epoch: 126  >>> [0m
+2024-01-24 16:22:36,960:	[1;35m[Coach] >>> TEST  @Epoch: 126  >>> [0m
+2024-01-24 16:22:45,557:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.596135 seconds ...[0m
+2024-01-24 16:22:45,661:	[1;35m[Coach] >>> TRAIN @Epoch: 127  >>>  || LOSS Avg: 7.49433[0m
+2024-01-24 16:22:45,661:	[1;35m[Coach] >>> VALID @Epoch: 127  >>> [0m
+2024-01-24 16:22:45,661:	[1;35m[Coach] >>> TEST  @Epoch: 127  >>> [0m
+2024-01-24 16:22:54,597:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.935033 seconds ...[0m
+2024-01-24 16:22:54,648:	[1;35m[Coach] >>> TRAIN @Epoch: 128  >>>  || LOSS Avg: 7.49316[0m
+2024-01-24 16:22:54,649:	[1;35m[Coach] >>> VALID @Epoch: 128  >>> [0m
+2024-01-24 16:22:54,649:	[1;35m[Coach] >>> TEST  @Epoch: 128  >>> [0m
+2024-01-24 16:23:03,910:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.260569 seconds ...[0m
+2024-01-24 16:23:03,957:	[1;35m[Coach] >>> TRAIN @Epoch: 129  >>>  || LOSS Avg: 7.49062[0m
+2024-01-24 16:23:03,957:	[1;35m[Coach] >>> VALID @Epoch: 129  >>> [0m
+2024-01-24 16:23:03,957:	[1;35m[Coach] >>> TEST  @Epoch: 129  >>> [0m
+2024-01-24 16:23:12,907:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.950036 seconds ...[0m
+2024-01-24 16:23:17,874:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.918295 seconds ...[0m
+2024-01-24 16:23:17,874:	[1;35m[Coach] >>> TRAIN @Epoch: 130  >>>  || LOSS Avg: 7.49017[0m
+2024-01-24 16:23:17,875:	[1;35m[Coach] >>> VALID @Epoch: 130  >>>  || HITRATE@1 Avg: 0.0069 || HITRATE@5 Avg: 0.0285 || HITRATE@10 Avg: 0.0485 || NDCG@5 Avg: 0.0176 || NDCG@10 Avg: 0.0241 || MRR@5 Avg: 0.0141 || MRR@10 Avg: 0.0168[0m
+2024-01-24 16:23:17,875:	[1;35m[Coach] >>> TEST  @Epoch: 130  >>> [0m
+2024-01-24 16:23:27,089:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.213836 seconds ...[0m
+2024-01-24 16:23:27,136:	[1;35m[Coach] >>> TRAIN @Epoch: 131  >>>  || LOSS Avg: 7.48813[0m
+2024-01-24 16:23:27,137:	[1;35m[Coach] >>> VALID @Epoch: 131  >>> [0m
+2024-01-24 16:23:27,137:	[1;35m[Coach] >>> TEST  @Epoch: 131  >>> [0m
+2024-01-24 16:23:35,786:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.649264 seconds ...[0m
+2024-01-24 16:23:35,834:	[1;35m[Coach] >>> TRAIN @Epoch: 132  >>>  || LOSS Avg: 7.48617[0m
+2024-01-24 16:23:35,834:	[1;35m[Coach] >>> VALID @Epoch: 132  >>> [0m
+2024-01-24 16:23:35,834:	[1;35m[Coach] >>> TEST  @Epoch: 132  >>> [0m
+2024-01-24 16:23:44,463:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.628046 seconds ...[0m
+2024-01-24 16:23:44,513:	[1;35m[Coach] >>> TRAIN @Epoch: 133  >>>  || LOSS Avg: 7.48542[0m
+2024-01-24 16:23:44,513:	[1;35m[Coach] >>> VALID @Epoch: 133  >>> [0m
+2024-01-24 16:23:44,513:	[1;35m[Coach] >>> TEST  @Epoch: 133  >>> [0m
+2024-01-24 16:23:53,466:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.952769 seconds ...[0m
+2024-01-24 16:23:53,512:	[1;35m[Coach] >>> TRAIN @Epoch: 134  >>>  || LOSS Avg: 7.48503[0m
+2024-01-24 16:23:53,513:	[1;35m[Coach] >>> VALID @Epoch: 134  >>> [0m
+2024-01-24 16:23:53,513:	[1;35m[Coach] >>> TEST  @Epoch: 134  >>> [0m
+2024-01-24 16:24:02,360:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.846583 seconds ...[0m
+2024-01-24 16:24:07,678:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.271362 seconds ...[0m
+2024-01-24 16:24:07,678:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0247*** [0m
+2024-01-24 16:24:07,701:	[1;35m[Coach] >>> TRAIN @Epoch: 135  >>>  || LOSS Avg: 7.48343[0m
+2024-01-24 16:24:07,701:	[1;35m[Coach] >>> VALID @Epoch: 135  >>>  || HITRATE@1 Avg: 0.0072 || HITRATE@5 Avg: 0.0288 || HITRATE@10 Avg: 0.0498 || NDCG@5 Avg: 0.0179 || NDCG@10 Avg: 0.0247 || MRR@5 Avg: 0.0144 || MRR@10 Avg: 0.0171[0m
+2024-01-24 16:24:07,701:	[1;35m[Coach] >>> TEST  @Epoch: 135  >>> [0m
+2024-01-24 16:24:16,990:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.288588 seconds ...[0m
+2024-01-24 16:24:17,037:	[1;35m[Coach] >>> TRAIN @Epoch: 136  >>>  || LOSS Avg: 7.48029[0m
+2024-01-24 16:24:17,037:	[1;35m[Coach] >>> VALID @Epoch: 136  >>> [0m
+2024-01-24 16:24:17,037:	[1;35m[Coach] >>> TEST  @Epoch: 136  >>> [0m
+2024-01-24 16:24:25,500:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.463087 seconds ...[0m
+2024-01-24 16:24:25,550:	[1;35m[Coach] >>> TRAIN @Epoch: 137  >>>  || LOSS Avg: 7.47966[0m
+2024-01-24 16:24:25,550:	[1;35m[Coach] >>> VALID @Epoch: 137  >>> [0m
+2024-01-24 16:24:25,550:	[1;35m[Coach] >>> TEST  @Epoch: 137  >>> [0m
+2024-01-24 16:24:34,223:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.672030 seconds ...[0m
+2024-01-24 16:24:34,271:	[1;35m[Coach] >>> TRAIN @Epoch: 138  >>>  || LOSS Avg: 7.48002[0m
+2024-01-24 16:24:34,271:	[1;35m[Coach] >>> VALID @Epoch: 138  >>> [0m
+2024-01-24 16:24:34,271:	[1;35m[Coach] >>> TEST  @Epoch: 138  >>> [0m
+2024-01-24 16:24:43,102:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.830404 seconds ...[0m
+2024-01-24 16:24:43,148:	[1;35m[Coach] >>> TRAIN @Epoch: 139  >>>  || LOSS Avg: 7.47816[0m
+2024-01-24 16:24:43,149:	[1;35m[Coach] >>> VALID @Epoch: 139  >>> [0m
+2024-01-24 16:24:43,149:	[1;35m[Coach] >>> TEST  @Epoch: 139  >>> [0m
+2024-01-24 16:24:51,759:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.609823 seconds ...[0m
+2024-01-24 16:24:56,483:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.618264 seconds ...[0m
+2024-01-24 16:24:56,484:	[1;35m[Coach] >>> TRAIN @Epoch: 140  >>>  || LOSS Avg: 7.47674[0m
+2024-01-24 16:24:56,484:	[1;35m[Coach] >>> VALID @Epoch: 140  >>>  || HITRATE@1 Avg: 0.0071 || HITRATE@5 Avg: 0.0285 || HITRATE@10 Avg: 0.0491 || NDCG@5 Avg: 0.0176 || NDCG@10 Avg: 0.0242 || MRR@5 Avg: 0.0140 || MRR@10 Avg: 0.0167[0m
+2024-01-24 16:24:56,484:	[1;35m[Coach] >>> TEST  @Epoch: 140  >>> [0m
+2024-01-24 16:25:05,042:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.557527 seconds ...[0m
+2024-01-24 16:25:05,148:	[1;35m[Coach] >>> TRAIN @Epoch: 141  >>>  || LOSS Avg: 7.47557[0m
+2024-01-24 16:25:05,148:	[1;35m[Coach] >>> VALID @Epoch: 141  >>> [0m
+2024-01-24 16:25:05,148:	[1;35m[Coach] >>> TEST  @Epoch: 141  >>> [0m
+2024-01-24 16:25:14,084:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.935385 seconds ...[0m
+2024-01-24 16:25:14,133:	[1;35m[Coach] >>> TRAIN @Epoch: 142  >>>  || LOSS Avg: 7.47370[0m
+2024-01-24 16:25:14,134:	[1;35m[Coach] >>> VALID @Epoch: 142  >>> [0m
+2024-01-24 16:25:14,134:	[1;35m[Coach] >>> TEST  @Epoch: 142  >>> [0m
+2024-01-24 16:25:22,915:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.781191 seconds ...[0m
+2024-01-24 16:25:22,965:	[1;35m[Coach] >>> TRAIN @Epoch: 143  >>>  || LOSS Avg: 7.47362[0m
+2024-01-24 16:25:22,966:	[1;35m[Coach] >>> VALID @Epoch: 143  >>> [0m
+2024-01-24 16:25:22,966:	[1;35m[Coach] >>> TEST  @Epoch: 143  >>> [0m
+2024-01-24 16:25:32,220:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.253817 seconds ...[0m
+2024-01-24 16:25:32,318:	[1;35m[Coach] >>> TRAIN @Epoch: 144  >>>  || LOSS Avg: 7.47195[0m
+2024-01-24 16:25:32,319:	[1;35m[Coach] >>> VALID @Epoch: 144  >>> [0m
+2024-01-24 16:25:32,319:	[1;35m[Coach] >>> TEST  @Epoch: 144  >>> [0m
+2024-01-24 16:25:41,272:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.952731 seconds ...[0m
+2024-01-24 16:25:46,148:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.829960 seconds ...[0m
+2024-01-24 16:25:46,148:	[1;35m[Coach] >>> TRAIN @Epoch: 145  >>>  || LOSS Avg: 7.47277[0m
+2024-01-24 16:25:46,149:	[1;35m[Coach] >>> VALID @Epoch: 145  >>>  || HITRATE@1 Avg: 0.0071 || HITRATE@5 Avg: 0.0284 || HITRATE@10 Avg: 0.0491 || NDCG@5 Avg: 0.0177 || NDCG@10 Avg: 0.0243 || MRR@5 Avg: 0.0142 || MRR@10 Avg: 0.0169[0m
+2024-01-24 16:25:46,149:	[1;35m[Coach] >>> TEST  @Epoch: 145  >>> [0m
+2024-01-24 16:25:54,743:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.593952 seconds ...[0m
+2024-01-24 16:25:54,789:	[1;35m[Coach] >>> TRAIN @Epoch: 146  >>>  || LOSS Avg: 7.47027[0m
+2024-01-24 16:25:54,789:	[1;35m[Coach] >>> VALID @Epoch: 146  >>> [0m
+2024-01-24 16:25:54,790:	[1;35m[Coach] >>> TEST  @Epoch: 146  >>> [0m
+2024-01-24 16:26:03,254:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.463914 seconds ...[0m
+2024-01-24 16:26:03,304:	[1;35m[Coach] >>> TRAIN @Epoch: 147  >>>  || LOSS Avg: 7.46977[0m
+2024-01-24 16:26:03,304:	[1;35m[Coach] >>> VALID @Epoch: 147  >>> [0m
+2024-01-24 16:26:03,304:	[1;35m[Coach] >>> TEST  @Epoch: 147  >>> [0m
+2024-01-24 16:26:11,877:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.573166 seconds ...[0m
+2024-01-24 16:26:11,928:	[1;35m[Coach] >>> TRAIN @Epoch: 148  >>>  || LOSS Avg: 7.47028[0m
+2024-01-24 16:26:11,928:	[1;35m[Coach] >>> VALID @Epoch: 148  >>> [0m
+2024-01-24 16:26:11,928:	[1;35m[Coach] >>> TEST  @Epoch: 148  >>> [0m
+2024-01-24 16:26:20,503:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.574387 seconds ...[0m
+2024-01-24 16:26:20,552:	[1;35m[Coach] >>> TRAIN @Epoch: 149  >>>  || LOSS Avg: 7.46845[0m
+2024-01-24 16:26:20,552:	[1;35m[Coach] >>> VALID @Epoch: 149  >>> [0m
+2024-01-24 16:26:20,553:	[1;35m[Coach] >>> TEST  @Epoch: 149  >>> [0m
+2024-01-24 16:26:29,239:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.685997 seconds ...[0m
+2024-01-24 16:26:34,022:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.734555 seconds ...[0m
+2024-01-24 16:26:34,023:	[1;35m[Coach] >>> TRAIN @Epoch: 150  >>>  || LOSS Avg: 7.46722[0m
+2024-01-24 16:26:34,023:	[1;35m[Coach] >>> VALID @Epoch: 150  >>>  || HITRATE@1 Avg: 0.0065 || HITRATE@5 Avg: 0.0287 || HITRATE@10 Avg: 0.0498 || NDCG@5 Avg: 0.0176 || NDCG@10 Avg: 0.0244 || MRR@5 Avg: 0.0139 || MRR@10 Avg: 0.0167[0m
+2024-01-24 16:26:34,023:	[1;35m[Coach] >>> TEST  @Epoch: 150  >>> [0m
+2024-01-24 16:26:42,649:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.625945 seconds ...[0m
+2024-01-24 16:26:42,700:	[1;35m[Coach] >>> TRAIN @Epoch: 151  >>>  || LOSS Avg: 7.46821[0m
+2024-01-24 16:26:42,700:	[1;35m[Coach] >>> VALID @Epoch: 151  >>> [0m
+2024-01-24 16:26:42,700:	[1;35m[Coach] >>> TEST  @Epoch: 151  >>> [0m
+2024-01-24 16:26:51,606:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.906126 seconds ...[0m
+2024-01-24 16:26:51,656:	[1;35m[Coach] >>> TRAIN @Epoch: 152  >>>  || LOSS Avg: 7.46564[0m
+2024-01-24 16:26:51,656:	[1;35m[Coach] >>> VALID @Epoch: 152  >>> [0m
+2024-01-24 16:26:51,656:	[1;35m[Coach] >>> TEST  @Epoch: 152  >>> [0m
+2024-01-24 16:27:00,211:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.554270 seconds ...[0m
+2024-01-24 16:27:00,260:	[1;35m[Coach] >>> TRAIN @Epoch: 153  >>>  || LOSS Avg: 7.46589[0m
+2024-01-24 16:27:00,260:	[1;35m[Coach] >>> VALID @Epoch: 153  >>> [0m
+2024-01-24 16:27:00,261:	[1;35m[Coach] >>> TEST  @Epoch: 153  >>> [0m
+2024-01-24 16:27:08,839:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.578077 seconds ...[0m
+2024-01-24 16:27:08,889:	[1;35m[Coach] >>> TRAIN @Epoch: 154  >>>  || LOSS Avg: 7.46415[0m
+2024-01-24 16:27:08,889:	[1;35m[Coach] >>> VALID @Epoch: 154  >>> [0m
+2024-01-24 16:27:08,890:	[1;35m[Coach] >>> TEST  @Epoch: 154  >>> [0m
+2024-01-24 16:27:17,624:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.734118 seconds ...[0m
+2024-01-24 16:27:22,460:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.784912 seconds ...[0m
+2024-01-24 16:27:22,461:	[1;35m[Coach] >>> TRAIN @Epoch: 155  >>>  || LOSS Avg: 7.46415[0m
+2024-01-24 16:27:22,461:	[1;35m[Coach] >>> VALID @Epoch: 155  >>>  || HITRATE@1 Avg: 0.0072 || HITRATE@5 Avg: 0.0291 || HITRATE@10 Avg: 0.0497 || NDCG@5 Avg: 0.0180 || NDCG@10 Avg: 0.0246 || MRR@5 Avg: 0.0144 || MRR@10 Avg: 0.0170[0m
+2024-01-24 16:27:22,461:	[1;35m[Coach] >>> TEST  @Epoch: 155  >>> [0m
+2024-01-24 16:27:31,775:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.313409 seconds ...[0m
+2024-01-24 16:27:31,826:	[1;35m[Coach] >>> TRAIN @Epoch: 156  >>>  || LOSS Avg: 7.46337[0m
+2024-01-24 16:27:31,827:	[1;35m[Coach] >>> VALID @Epoch: 156  >>> [0m
+2024-01-24 16:27:31,827:	[1;35m[Coach] >>> TEST  @Epoch: 156  >>> [0m
+2024-01-24 16:27:40,541:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.713757 seconds ...[0m
+2024-01-24 16:27:40,593:	[1;35m[Coach] >>> TRAIN @Epoch: 157  >>>  || LOSS Avg: 7.46305[0m
+2024-01-24 16:27:40,593:	[1;35m[Coach] >>> VALID @Epoch: 157  >>> [0m
+2024-01-24 16:27:40,593:	[1;35m[Coach] >>> TEST  @Epoch: 157  >>> [0m
+2024-01-24 16:27:49,262:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.668584 seconds ...[0m
+2024-01-24 16:27:49,307:	[1;35m[Coach] >>> TRAIN @Epoch: 158  >>>  || LOSS Avg: 7.46338[0m
+2024-01-24 16:27:49,307:	[1;35m[Coach] >>> VALID @Epoch: 158  >>> [0m
+2024-01-24 16:27:49,307:	[1;35m[Coach] >>> TEST  @Epoch: 158  >>> [0m
+2024-01-24 16:27:57,994:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.687039 seconds ...[0m
+2024-01-24 16:27:58,037:	[1;35m[Coach] >>> TRAIN @Epoch: 159  >>>  || LOSS Avg: 7.46394[0m
+2024-01-24 16:27:58,038:	[1;35m[Coach] >>> VALID @Epoch: 159  >>> [0m
+2024-01-24 16:27:58,038:	[1;35m[Coach] >>> TEST  @Epoch: 159  >>> [0m
+2024-01-24 16:28:06,640:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.601670 seconds ...[0m
+2024-01-24 16:28:12,048:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.301671 seconds ...[0m
+2024-01-24 16:28:12,049:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0248*** [0m
+2024-01-24 16:28:12,070:	[1;35m[Coach] >>> TRAIN @Epoch: 160  >>>  || LOSS Avg: 7.46121[0m
+2024-01-24 16:28:12,070:	[1;35m[Coach] >>> VALID @Epoch: 160  >>>  || HITRATE@1 Avg: 0.0076 || HITRATE@5 Avg: 0.0281 || HITRATE@10 Avg: 0.0502 || NDCG@5 Avg: 0.0177 || NDCG@10 Avg: 0.0248 || MRR@5 Avg: 0.0143 || MRR@10 Avg: 0.0172[0m
+2024-01-24 16:28:12,070:	[1;35m[Coach] >>> TEST  @Epoch: 160  >>> [0m
+2024-01-24 16:28:20,660:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.589978 seconds ...[0m
+2024-01-24 16:28:20,705:	[1;35m[Coach] >>> TRAIN @Epoch: 161  >>>  || LOSS Avg: 7.46160[0m
+2024-01-24 16:28:20,705:	[1;35m[Coach] >>> VALID @Epoch: 161  >>> [0m
+2024-01-24 16:28:20,705:	[1;35m[Coach] >>> TEST  @Epoch: 161  >>> [0m
+2024-01-24 16:28:29,609:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.903793 seconds ...[0m
+2024-01-24 16:28:29,658:	[1;35m[Coach] >>> TRAIN @Epoch: 162  >>>  || LOSS Avg: 7.46103[0m
+2024-01-24 16:28:29,659:	[1;35m[Coach] >>> VALID @Epoch: 162  >>> [0m
+2024-01-24 16:28:29,659:	[1;35m[Coach] >>> TEST  @Epoch: 162  >>> [0m
+2024-01-24 16:28:38,871:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.212028 seconds ...[0m
+2024-01-24 16:28:38,976:	[1;35m[Coach] >>> TRAIN @Epoch: 163  >>>  || LOSS Avg: 7.46001[0m
+2024-01-24 16:28:38,976:	[1;35m[Coach] >>> VALID @Epoch: 163  >>> [0m
+2024-01-24 16:28:38,977:	[1;35m[Coach] >>> TEST  @Epoch: 163  >>> [0m
+2024-01-24 16:28:48,106:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.129396 seconds ...[0m
+2024-01-24 16:28:48,153:	[1;35m[Coach] >>> TRAIN @Epoch: 164  >>>  || LOSS Avg: 7.45882[0m
+2024-01-24 16:28:48,153:	[1;35m[Coach] >>> VALID @Epoch: 164  >>> [0m
+2024-01-24 16:28:48,153:	[1;35m[Coach] >>> TEST  @Epoch: 164  >>> [0m
+2024-01-24 16:28:56,993:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.839790 seconds ...[0m
+2024-01-24 16:29:01,736:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.691144 seconds ...[0m
+2024-01-24 16:29:01,737:	[1;35m[Coach] >>> TRAIN @Epoch: 165  >>>  || LOSS Avg: 7.45872[0m
+2024-01-24 16:29:01,737:	[1;35m[Coach] >>> VALID @Epoch: 165  >>>  || HITRATE@1 Avg: 0.0065 || HITRATE@5 Avg: 0.0284 || HITRATE@10 Avg: 0.0499 || NDCG@5 Avg: 0.0174 || NDCG@10 Avg: 0.0243 || MRR@5 Avg: 0.0138 || MRR@10 Avg: 0.0166[0m
+2024-01-24 16:29:01,737:	[1;35m[Coach] >>> TEST  @Epoch: 165  >>> [0m
+2024-01-24 16:29:10,200:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.462049 seconds ...[0m
+2024-01-24 16:29:10,304:	[1;35m[Coach] >>> TRAIN @Epoch: 166  >>>  || LOSS Avg: 7.45911[0m
+2024-01-24 16:29:10,304:	[1;35m[Coach] >>> VALID @Epoch: 166  >>> [0m
+2024-01-24 16:29:10,305:	[1;35m[Coach] >>> TEST  @Epoch: 166  >>> [0m
+2024-01-24 16:29:18,936:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.631588 seconds ...[0m
+2024-01-24 16:29:18,988:	[1;35m[Coach] >>> TRAIN @Epoch: 167  >>>  || LOSS Avg: 7.45764[0m
+2024-01-24 16:29:18,988:	[1;35m[Coach] >>> VALID @Epoch: 167  >>> [0m
+2024-01-24 16:29:18,988:	[1;35m[Coach] >>> TEST  @Epoch: 167  >>> [0m
+2024-01-24 16:29:28,047:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.058456 seconds ...[0m
+2024-01-24 16:29:28,095:	[1;35m[Coach] >>> TRAIN @Epoch: 168  >>>  || LOSS Avg: 7.45683[0m
+2024-01-24 16:29:28,096:	[1;35m[Coach] >>> VALID @Epoch: 168  >>> [0m
+2024-01-24 16:29:28,096:	[1;35m[Coach] >>> TEST  @Epoch: 168  >>> [0m
+2024-01-24 16:29:36,663:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.566684 seconds ...[0m
+2024-01-24 16:29:36,714:	[1;35m[Coach] >>> TRAIN @Epoch: 169  >>>  || LOSS Avg: 7.45582[0m
+2024-01-24 16:29:36,715:	[1;35m[Coach] >>> VALID @Epoch: 169  >>> [0m
+2024-01-24 16:29:36,715:	[1;35m[Coach] >>> TEST  @Epoch: 169  >>> [0m
+2024-01-24 16:29:45,338:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.622713 seconds ...[0m
+2024-01-24 16:29:50,143:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.755497 seconds ...[0m
+2024-01-24 16:29:50,143:	[1;35m[Coach] >>> TRAIN @Epoch: 170  >>>  || LOSS Avg: 7.45743[0m
+2024-01-24 16:29:50,143:	[1;35m[Coach] >>> VALID @Epoch: 170  >>>  || HITRATE@1 Avg: 0.0076 || HITRATE@5 Avg: 0.0292 || HITRATE@10 Avg: 0.0488 || NDCG@5 Avg: 0.0183 || NDCG@10 Avg: 0.0246 || MRR@5 Avg: 0.0148 || MRR@10 Avg: 0.0174[0m
+2024-01-24 16:29:50,144:	[1;35m[Coach] >>> TEST  @Epoch: 170  >>> [0m
+2024-01-24 16:29:58,845:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.700856 seconds ...[0m
+2024-01-24 16:29:58,896:	[1;35m[Coach] >>> TRAIN @Epoch: 171  >>>  || LOSS Avg: 7.45587[0m
+2024-01-24 16:29:58,896:	[1;35m[Coach] >>> VALID @Epoch: 171  >>> [0m
+2024-01-24 16:29:58,896:	[1;35m[Coach] >>> TEST  @Epoch: 171  >>> [0m
+2024-01-24 16:30:07,662:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.765563 seconds ...[0m
+2024-01-24 16:30:07,771:	[1;35m[Coach] >>> TRAIN @Epoch: 172  >>>  || LOSS Avg: 7.45447[0m
+2024-01-24 16:30:07,771:	[1;35m[Coach] >>> VALID @Epoch: 172  >>> [0m
+2024-01-24 16:30:07,771:	[1;35m[Coach] >>> TEST  @Epoch: 172  >>> [0m
+2024-01-24 16:30:16,309:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.537410 seconds ...[0m
+2024-01-24 16:30:16,361:	[1;35m[Coach] >>> TRAIN @Epoch: 173  >>>  || LOSS Avg: 7.45603[0m
+2024-01-24 16:30:16,361:	[1;35m[Coach] >>> VALID @Epoch: 173  >>> [0m
+2024-01-24 16:30:16,361:	[1;35m[Coach] >>> TEST  @Epoch: 173  >>> [0m
+2024-01-24 16:30:25,501:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.139493 seconds ...[0m
+2024-01-24 16:30:25,549:	[1;35m[Coach] >>> TRAIN @Epoch: 174  >>>  || LOSS Avg: 7.45460[0m
+2024-01-24 16:30:25,549:	[1;35m[Coach] >>> VALID @Epoch: 174  >>> [0m
+2024-01-24 16:30:25,549:	[1;35m[Coach] >>> TEST  @Epoch: 174  >>> [0m
+2024-01-24 16:30:35,122:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.572311 seconds ...[0m
+2024-01-24 16:30:39,925:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.739763 seconds ...[0m
+2024-01-24 16:30:39,926:	[1;35m[Coach] >>> TRAIN @Epoch: 175  >>>  || LOSS Avg: 7.45563[0m
+2024-01-24 16:30:39,926:	[1;35m[Coach] >>> VALID @Epoch: 175  >>>  || HITRATE@1 Avg: 0.0071 || HITRATE@5 Avg: 0.0277 || HITRATE@10 Avg: 0.0495 || NDCG@5 Avg: 0.0175 || NDCG@10 Avg: 0.0244 || MRR@5 Avg: 0.0141 || MRR@10 Avg: 0.0169[0m
+2024-01-24 16:30:39,926:	[1;35m[Coach] >>> TEST  @Epoch: 175  >>> [0m
+2024-01-24 16:30:48,964:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.037104 seconds ...[0m
+2024-01-24 16:30:49,071:	[1;35m[Coach] >>> TRAIN @Epoch: 176  >>>  || LOSS Avg: 7.45255[0m
+2024-01-24 16:30:49,071:	[1;35m[Coach] >>> VALID @Epoch: 176  >>> [0m
+2024-01-24 16:30:49,071:	[1;35m[Coach] >>> TEST  @Epoch: 176  >>> [0m
+2024-01-24 16:30:57,613:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.541984 seconds ...[0m
+2024-01-24 16:30:57,661:	[1;35m[Coach] >>> TRAIN @Epoch: 177  >>>  || LOSS Avg: 7.45417[0m
+2024-01-24 16:30:57,661:	[1;35m[Coach] >>> VALID @Epoch: 177  >>> [0m
+2024-01-24 16:30:57,661:	[1;35m[Coach] >>> TEST  @Epoch: 177  >>> [0m
+2024-01-24 16:31:06,302:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.640530 seconds ...[0m
+2024-01-24 16:31:06,358:	[1;35m[Coach] >>> TRAIN @Epoch: 178  >>>  || LOSS Avg: 7.45199[0m
+2024-01-24 16:31:06,358:	[1;35m[Coach] >>> VALID @Epoch: 178  >>> [0m
+2024-01-24 16:31:06,358:	[1;35m[Coach] >>> TEST  @Epoch: 178  >>> [0m
+2024-01-24 16:31:14,984:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.626105 seconds ...[0m
+2024-01-24 16:31:15,028:	[1;35m[Coach] >>> TRAIN @Epoch: 179  >>>  || LOSS Avg: 7.45342[0m
+2024-01-24 16:31:15,028:	[1;35m[Coach] >>> VALID @Epoch: 179  >>> [0m
+2024-01-24 16:31:15,028:	[1;35m[Coach] >>> TEST  @Epoch: 179  >>> [0m
+2024-01-24 16:31:23,712:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.683212 seconds ...[0m
+2024-01-24 16:31:28,783:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.958361 seconds ...[0m
+2024-01-24 16:31:28,784:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0251*** [0m
+2024-01-24 16:31:28,809:	[1;35m[Coach] >>> TRAIN @Epoch: 180  >>>  || LOSS Avg: 7.45249[0m
+2024-01-24 16:31:28,809:	[1;35m[Coach] >>> VALID @Epoch: 180  >>>  || HITRATE@1 Avg: 0.0075 || HITRATE@5 Avg: 0.0299 || HITRATE@10 Avg: 0.0505 || NDCG@5 Avg: 0.0185 || NDCG@10 Avg: 0.0251 || MRR@5 Avg: 0.0148 || MRR@10 Avg: 0.0175[0m
+2024-01-24 16:31:28,809:	[1;35m[Coach] >>> TEST  @Epoch: 180  >>> [0m
+2024-01-24 16:31:37,449:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.639952 seconds ...[0m
+2024-01-24 16:31:37,498:	[1;35m[Coach] >>> TRAIN @Epoch: 181  >>>  || LOSS Avg: 7.45381[0m
+2024-01-24 16:31:37,498:	[1;35m[Coach] >>> VALID @Epoch: 181  >>> [0m
+2024-01-24 16:31:37,498:	[1;35m[Coach] >>> TEST  @Epoch: 181  >>> [0m
+2024-01-24 16:31:46,098:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.598266 seconds ...[0m
+2024-01-24 16:31:46,146:	[1;35m[Coach] >>> TRAIN @Epoch: 182  >>>  || LOSS Avg: 7.45704[0m
+2024-01-24 16:31:46,146:	[1;35m[Coach] >>> VALID @Epoch: 182  >>> [0m
+2024-01-24 16:31:46,147:	[1;35m[Coach] >>> TEST  @Epoch: 182  >>> [0m
+2024-01-24 16:31:54,984:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.836944 seconds ...[0m
+2024-01-24 16:31:55,091:	[1;35m[Coach] >>> TRAIN @Epoch: 183  >>>  || LOSS Avg: 7.45170[0m
+2024-01-24 16:31:55,092:	[1;35m[Coach] >>> VALID @Epoch: 183  >>> [0m
+2024-01-24 16:31:55,092:	[1;35m[Coach] >>> TEST  @Epoch: 183  >>> [0m
+2024-01-24 16:32:04,155:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.062502 seconds ...[0m
+2024-01-24 16:32:04,209:	[1;35m[Coach] >>> TRAIN @Epoch: 184  >>>  || LOSS Avg: 7.45097[0m
+2024-01-24 16:32:04,210:	[1;35m[Coach] >>> VALID @Epoch: 184  >>> [0m
+2024-01-24 16:32:04,210:	[1;35m[Coach] >>> TEST  @Epoch: 184  >>> [0m
+2024-01-24 16:32:13,306:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.095765 seconds ...[0m
+2024-01-24 16:32:18,232:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.877136 seconds ...[0m
+2024-01-24 16:32:18,232:	[1;35m[Coach] >>> Better ***NDCG@10*** of ***0.0252*** [0m
+2024-01-24 16:32:18,255:	[1;35m[Coach] >>> TRAIN @Epoch: 185  >>>  || LOSS Avg: 7.45006[0m
+2024-01-24 16:32:18,255:	[1;35m[Coach] >>> VALID @Epoch: 185  >>>  || HITRATE@1 Avg: 0.0080 || HITRATE@5 Avg: 0.0293 || HITRATE@10 Avg: 0.0500 || NDCG@5 Avg: 0.0185 || NDCG@10 Avg: 0.0252 || MRR@5 Avg: 0.0150 || MRR@10 Avg: 0.0177[0m
+2024-01-24 16:32:18,255:	[1;35m[Coach] >>> TEST  @Epoch: 185  >>> [0m
+2024-01-24 16:32:27,012:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.756365 seconds ...[0m
+2024-01-24 16:32:27,112:	[1;35m[Coach] >>> TRAIN @Epoch: 186  >>>  || LOSS Avg: 7.44966[0m
+2024-01-24 16:32:27,112:	[1;35m[Coach] >>> VALID @Epoch: 186  >>> [0m
+2024-01-24 16:32:27,112:	[1;35m[Coach] >>> TEST  @Epoch: 186  >>> [0m
+2024-01-24 16:32:35,904:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.791509 seconds ...[0m
+2024-01-24 16:32:35,948:	[1;35m[Coach] >>> TRAIN @Epoch: 187  >>>  || LOSS Avg: 7.44975[0m
+2024-01-24 16:32:35,948:	[1;35m[Coach] >>> VALID @Epoch: 187  >>> [0m
+2024-01-24 16:32:35,948:	[1;35m[Coach] >>> TEST  @Epoch: 187  >>> [0m
+2024-01-24 16:32:44,510:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.562036 seconds ...[0m
+2024-01-24 16:32:44,558:	[1;35m[Coach] >>> TRAIN @Epoch: 188  >>>  || LOSS Avg: 7.44997[0m
+2024-01-24 16:32:44,558:	[1;35m[Coach] >>> VALID @Epoch: 188  >>> [0m
+2024-01-24 16:32:44,558:	[1;35m[Coach] >>> TEST  @Epoch: 188  >>> [0m
+2024-01-24 16:32:53,585:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.026777 seconds ...[0m
+2024-01-24 16:32:53,643:	[1;35m[Coach] >>> TRAIN @Epoch: 189  >>>  || LOSS Avg: 7.44907[0m
+2024-01-24 16:32:53,643:	[1;35m[Coach] >>> VALID @Epoch: 189  >>> [0m
+2024-01-24 16:32:53,643:	[1;35m[Coach] >>> TEST  @Epoch: 189  >>> [0m
+2024-01-24 16:33:02,717:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 9.073355 seconds ...[0m
+2024-01-24 16:33:07,698:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.931603 seconds ...[0m
+2024-01-24 16:33:07,699:	[1;35m[Coach] >>> TRAIN @Epoch: 190  >>>  || LOSS Avg: 7.44869[0m
+2024-01-24 16:33:07,699:	[1;35m[Coach] >>> VALID @Epoch: 190  >>>  || HITRATE@1 Avg: 0.0074 || HITRATE@5 Avg: 0.0292 || HITRATE@10 Avg: 0.0496 || NDCG@5 Avg: 0.0182 || NDCG@10 Avg: 0.0247 || MRR@5 Avg: 0.0146 || MRR@10 Avg: 0.0173[0m
+2024-01-24 16:33:07,699:	[1;35m[Coach] >>> TEST  @Epoch: 190  >>> [0m
+2024-01-24 16:33:16,256:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.555820 seconds ...[0m
+2024-01-24 16:33:16,307:	[1;35m[Coach] >>> TRAIN @Epoch: 191  >>>  || LOSS Avg: 7.44705[0m
+2024-01-24 16:33:16,307:	[1;35m[Coach] >>> VALID @Epoch: 191  >>> [0m
+2024-01-24 16:33:16,307:	[1;35m[Coach] >>> TEST  @Epoch: 191  >>> [0m
+2024-01-24 16:33:25,253:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.946152 seconds ...[0m
+2024-01-24 16:33:25,299:	[1;35m[Coach] >>> TRAIN @Epoch: 192  >>>  || LOSS Avg: 7.44698[0m
+2024-01-24 16:33:25,299:	[1;35m[Coach] >>> VALID @Epoch: 192  >>> [0m
+2024-01-24 16:33:25,300:	[1;35m[Coach] >>> TEST  @Epoch: 192  >>> [0m
+2024-01-24 16:33:33,869:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.569160 seconds ...[0m
+2024-01-24 16:33:33,917:	[1;35m[Coach] >>> TRAIN @Epoch: 193  >>>  || LOSS Avg: 7.44854[0m
+2024-01-24 16:33:33,917:	[1;35m[Coach] >>> VALID @Epoch: 193  >>> [0m
+2024-01-24 16:33:33,917:	[1;35m[Coach] >>> TEST  @Epoch: 193  >>> [0m
+2024-01-24 16:33:42,540:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.622373 seconds ...[0m
+2024-01-24 16:33:42,584:	[1;35m[Coach] >>> TRAIN @Epoch: 194  >>>  || LOSS Avg: 7.44833[0m
+2024-01-24 16:33:42,585:	[1;35m[Coach] >>> VALID @Epoch: 194  >>> [0m
+2024-01-24 16:33:42,585:	[1;35m[Coach] >>> TEST  @Epoch: 194  >>> [0m
+2024-01-24 16:33:51,252:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.666615 seconds ...[0m
+2024-01-24 16:33:56,292:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.990825 seconds ...[0m
+2024-01-24 16:33:56,293:	[1;35m[Coach] >>> TRAIN @Epoch: 195  >>>  || LOSS Avg: 7.44851[0m
+2024-01-24 16:33:56,293:	[1;35m[Coach] >>> VALID @Epoch: 195  >>>  || HITRATE@1 Avg: 0.0067 || HITRATE@5 Avg: 0.0298 || HITRATE@10 Avg: 0.0491 || NDCG@5 Avg: 0.0181 || NDCG@10 Avg: 0.0243 || MRR@5 Avg: 0.0143 || MRR@10 Avg: 0.0168[0m
+2024-01-24 16:33:56,293:	[1;35m[Coach] >>> TEST  @Epoch: 195  >>> [0m
+2024-01-24 16:34:05,191:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.897326 seconds ...[0m
+2024-01-24 16:34:05,239:	[1;35m[Coach] >>> TRAIN @Epoch: 196  >>>  || LOSS Avg: 7.44704[0m
+2024-01-24 16:34:05,239:	[1;35m[Coach] >>> VALID @Epoch: 196  >>> [0m
+2024-01-24 16:34:05,239:	[1;35m[Coach] >>> TEST  @Epoch: 196  >>> [0m
+2024-01-24 16:34:14,231:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.991554 seconds ...[0m
+2024-01-24 16:34:14,282:	[1;35m[Coach] >>> TRAIN @Epoch: 197  >>>  || LOSS Avg: 7.44691[0m
+2024-01-24 16:34:14,282:	[1;35m[Coach] >>> VALID @Epoch: 197  >>> [0m
+2024-01-24 16:34:14,283:	[1;35m[Coach] >>> TEST  @Epoch: 197  >>> [0m
+2024-01-24 16:34:23,063:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.780417 seconds ...[0m
+2024-01-24 16:34:23,167:	[1;35m[Coach] >>> TRAIN @Epoch: 198  >>>  || LOSS Avg: 7.44709[0m
+2024-01-24 16:34:23,168:	[1;35m[Coach] >>> VALID @Epoch: 198  >>> [0m
+2024-01-24 16:34:23,168:	[1;35m[Coach] >>> TEST  @Epoch: 198  >>> [0m
+2024-01-24 16:34:31,631:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.462620 seconds ...[0m
+2024-01-24 16:34:31,679:	[1;35m[Coach] >>> TRAIN @Epoch: 199  >>>  || LOSS Avg: 7.44661[0m
+2024-01-24 16:34:31,679:	[1;35m[Coach] >>> VALID @Epoch: 199  >>> [0m
+2024-01-24 16:34:31,679:	[1;35m[Coach] >>> TEST  @Epoch: 199  >>> [0m
+2024-01-24 16:34:40,366:	[1;35m[Wall TIME] >>> ChiefCoach.train takes 8.686757 seconds ...[0m
+2024-01-24 16:34:45,521:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 5.139243 seconds ...[0m
+2024-01-24 16:34:51,249:	[1;35m[Wall TIME] >>> ChiefCoach.test takes 5.727677 seconds ...[0m
+2024-01-24 16:34:51,250:	[1;35m[Coach] >>> TRAIN @Epoch: 200  >>>  || LOSS Avg: 7.44496[0m
+2024-01-24 16:34:51,250:	[1;35m[Coach] >>> VALID @Epoch: 200  >>>  || HITRATE@1 Avg: 0.0066 || HITRATE@5 Avg: 0.0292 || HITRATE@10 Avg: 0.0494 || NDCG@5 Avg: 0.0176 || NDCG@10 Avg: 0.0240 || MRR@5 Avg: 0.0138 || MRR@10 Avg: 0.0165[0m
+2024-01-24 16:34:51,250:	[1;35m[Coach] >>> TEST  @Epoch: 200  >>>  || HITRATE@1 Avg: 0.0067 || HITRATE@5 Avg: 0.0266 || HITRATE@10 Avg: 0.0465 || NDCG@5 Avg: 0.0166 || NDCG@10 Avg: 0.0230 || MRR@5 Avg: 0.0133 || MRR@10 Avg: 0.0159[0m
+2024-01-24 16:34:53,414:	[1;35m   Prefix      Metric      Best  @Epoch
+0   train        LOSS  7.444956     199
+1   valid   HITRATE@1  0.007952     185
+2   valid   HITRATE@5  0.029937     180
+3   valid  HITRATE@10  0.050508     180
+4   valid      NDCG@5  0.018525     185
+5   valid     NDCG@10  0.025168     185
+6   valid       MRR@5  0.015000     185
+7   valid      MRR@10  0.017718     185
+8    test   HITRATE@1  0.006737       0
+9    test   HITRATE@5  0.026552       0
+10   test  HITRATE@10  0.046466       0
+11   test      NDCG@5  0.016566       0
+12   test     NDCG@10  0.022956       0
+13   test       MRR@5  0.013312       0
+14   test      MRR@10  0.015919       0[0m
+2024-01-24 16:34:53,414:	[1;35m[LoG_PaTH] >>> ./logs/yelp-ce-5/Yelp_550_Chron/0124160154[0m
+2024-01-24 16:34:53,491:	[1;35m[Wall TIME] >>> Coach.summary takes 2.240153 seconds ...[0m
+2024-01-24 16:34:53,491:	[1;35m[Coach] >>> Load best model @Epoch 185  [0m
+2024-01-24 16:34:58,205:	[1;35m[Wall TIME] >>> ChiefCoach.valid takes 4.707409 seconds ...[0m
+2024-01-24 16:35:02,974:	[1;35m[Wall TIME] >>> ChiefCoach.test takes 4.769049 seconds ...[0m
+2024-01-24 16:35:02,975:	[1;35m[Coach] >>> TRAIN @Epoch: 185  >>> [0m
+2024-01-24 16:35:02,975:	[1;35m[Coach] >>> VALID @Epoch: 185  >>>  || HITRATE@1 Avg: 0.0080 || HITRATE@5 Avg: 0.0293 || HITRATE@10 Avg: 0.0500 || NDCG@5 Avg: 0.0185 || NDCG@10 Avg: 0.0252 || MRR@5 Avg: 0.0150 || MRR@10 Avg: 0.0177[0m
+2024-01-24 16:35:02,975:	[1;35m[Coach] >>> TEST  @Epoch: 185  >>>  || HITRATE@1 Avg: 0.0065 || HITRATE@5 Avg: 0.0270 || HITRATE@10 Avg: 0.0463 || NDCG@5 Avg: 0.0167 || NDCG@10 Avg: 0.0229 || MRR@5 Avg: 0.0134 || MRR@10 Avg: 0.0159[0m
+2024-01-24 16:35:02,983:	[1;35m[Wall TIME] >>> Coach.fit takes 1981.559699 seconds ...[0m
